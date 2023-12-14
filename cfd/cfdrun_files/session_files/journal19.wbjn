@@ -1,0 +1,80 @@
+# encoding: utf-8
+# 2023 R1
+SetScriptVersion(Version="23.1.153")
+system1 = GetSystem(Name="CFX")
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+results1.SendCommand(Command="""VIEW:View 1
+  Light Angle = 50, 110
+END
+
+VIEW:View 2
+  Light Angle = 50, 110
+END
+
+VIEW:View 3
+  Light Angle = 50, 110
+END
+
+VIEW:View 4
+  Light Angle = 50, 110
+END
+
+> update
+
+VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe, /COMPHIGHLIGHT:Component 1, /COMPHIGHLIGHT:Component 2, /COMPHIGHLIGHT:Component 3
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Initialisation View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Initialisation View, viewport=1""")
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe, /COMPHIGHLIGHT:Component 1, /COMPHIGHLIGHT:Component 2, /COMPHIGHLIGHT:Component 3
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Initialisation View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Initialisation View, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Synchronize Visibility = false
+END""")
+results1.SendCommand(Command="""INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+END""")
+results1.SendCommand(Command="""DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Turbo 3D Views Macro begins (initialize)
+VIEW:Turbo Regions View
+ Coord Transform = Cartesian
+ Is A Figure = false
+ Valid Case = Case CFX
+END
+>show /WIREFRAME:Wireframe, view=/VIEW:Turbo Regions View
+# CCL from Turbo 3D Views Macro ends (initialize)""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (initialize)
+
+VIEW:Blade to Blade View
+ Coord Transform = 2D Blade-to-blade
+ Is A Figure = false
+ Valid Case = Case CFX
+END
+
+>show /INTERNAL LEGEND:Blade to Blade Legend,/INTERNAL TURBO SURFACE:Blade to Blade Surface,/INTERNAL VECTOR:Blade to Blade Vector,/INTERNAL CONTOUR:Blade to Blade Contour,/INTERNAL STREAMLINE:Blade to Blade Stream, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.Exit()
+results1.Edit()
+Save(Overwrite=True)

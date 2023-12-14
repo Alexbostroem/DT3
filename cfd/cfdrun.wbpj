@@ -2,10 +2,10 @@
 <Storage>
   <Project Version="9.1">
     <base-designpoint-name valType="String">0</base-designpoint-name>
-    <timestamp-max valType="Int64">13018</timestamp-max>
+    <timestamp-max valType="Int64">13915</timestamp-max>
     <framework-build-version valType="String">23.1.153.0</framework-build-version>
     <external-version-string valType="String">2023 R1</external-version-string>
-    <last-saved-utc valType="String">12/14/2023 08:52:29</last-saved-utc>
+    <last-saved-utc valType="String">12/14/2023 12:55:01</last-saved-utc>
     <managed-categories valType="String">[report, misc, progress]</managed-categories>
     <logHistory valType="StringArray">
       <ArrayEntry Index="0">olivierp@TFD002:C:\Users\olivierp\AppData\Local\Temp\WorkbenchLogs\CoreEvents4036.log</ArrayEntry>
@@ -25,6 +25,7 @@
       <ArrayEntry Index="14">alebostr@M-0164A-06:C:\Users\local_alebostr\Temp\WorkbenchLogs\CoreEvents15848.log</ArrayEntry>
       <ArrayEntry Index="15">alebostr@HB-105-21:C:\Users\local_alebostr\Temp\WorkbenchLogs\CoreEvents10484.log</ArrayEntry>
       <ArrayEntry Index="16">alebostr@M-0164A-04:C:\Users\local_alebostr\Temp\WorkbenchLogs\CoreEvents13032.log</ArrayEntry>
+      <ArrayEntry Index="17">alebostr@M-0164A-22:C:\Users\local_alebostr\Temp\WorkbenchLogs\CoreEvents11912.log</ArrayEntry>
     </logHistory>
     <expression-scope-container valType="String">Parameters</expression-scope-container>
     <project-type valType="String">WB2</project-type>
@@ -153,7 +154,7 @@
       <Object Name="/FileContainer/FileReference:F27" Version="1.0">
         <class-type valType="String">FileReference</class-type>
         <object-name valType="String">F27</object-name>
-        <member-data valType="String">{"DisplayText": "act.dat", "FileType": $$8c31fb34-edef-407a-8f9c-f470408575fb, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\act.dat", "ReferenceCount": 41}</member-data>
+        <member-data valType="String">{"DisplayText": "act.dat", "FileType": $$8c31fb34-edef-407a-8f9c-f470408575fb, "DependentFiles": [], "ContainerAssociations": [], "SkipForDesignPointDuplication": False, "IsDeletable": True, "ExternalSource": None, "LastDownloadFromRepository": -1, "Location": r"$(ProjectName)_files\dp0\act.dat", "ReferenceCount": 43}</member-data>
       </Object>
       <Object Name="/FileContainer/FileReference:F50" Version="1.0">
         <class-type valType="String">FileReference</class-type>
@@ -236,7 +237,7 @@
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 11587, "Input": 1658, "Output": 1658}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 13847, "Input": 1658, "Output": 1658}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">false</contains-significant-data>
       <Object Name="/Messages/StoredMessage:Message" Version="1.0">
@@ -251,6 +252,19 @@ CFX""", "Association": "", "DateTimeStamp": 12/12/2023 17:55:27, "Visibility": "
         <object-name valType="String">Message 1</object-name>
         <member-data valType="String">{"DisplayText": "Message", "MessageType": "Information", "MessageCategory": "None", "Summary": "Update interrupted", "Details": None, "Association": "", "DateTimeStamp": 12/12/2023 17:55:27, "Visibility": "Information", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": "0"}</member-data>
       </Object>
+      <Object Name="/Messages/StoredMessage:Message 2" Version="1.0">
+        <class-type valType="String">StoredMessage</class-type>
+        <object-name valType="String">Message 2</object-name>
+        <member-data valType="String">{"DisplayText": "Message", "MessageType": "Error", "MessageCategory": "None", "Summary": """The project has been partially saved, but some errors occured during the save.
+Failed add-in(s) from designpoint: Ansys.ACT.WorkBench.Addin
+""", "Details": """   at Ansys.Core.Persistence.ProjectSaveHandler.DoProjectSave()
+   at Ansys.Core.Persistence.ProjectSaveHandler.ProjectSave()
+   at Ansys.Core.Persistence.Commands.SaveCommand.DoSave(IFullContext context, String filePath, Boolean overwrite, Boolean revertibleSave)
+   at Ansys.Core.Persistence.Commands.SaveCommand.Execute(IFullContext context)
+   at Ansys.Core.Commands.Concurrency.CommandWorkUnit.executeInContext(CommandContext subContext, IExecutionEngineCallback tracer)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.doExecute(IExecutionEngineCallback executionEngine, CommandContext subContext)
+   at Ansys.Core.Commands.Concurrency.BaseWorkUnit.Execute(IExecutionEngineCallback executionEngine, Boolean dontCatchExceptions)""", "Association": "", "DateTimeStamp": 12/14/2023 13:52:38, "Visibility": "Standard", "MessageSourceContainer": None, "MessageSourceEntity": None, "AdditionalMessageData": None, "DesignPoint": None}</member-data>
+      </Object>
     </Container>
     <Container Name="Parameters" Version="1.0">
       <container-type valType="String">Ansys.ParameterManager.ParameterManagerAddin:parameters</container-type>
@@ -259,7 +273,7 @@ CFX""", "Association": "", "DateTimeStamp": 12/12/2023 17:55:27, "Visibility": "
       <maxUpdateOrder valType="Double">1</maxUpdateOrder>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 13017, "Input": 13018, "Output": 1659}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 13910, "Input": 13911, "Output": 1659}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Parameters/DesignPoint:0" Version="1.0">
@@ -281,7 +295,7 @@ CFX""", "Association": "", "DateTimeStamp": 12/12/2023 17:55:27, "Visibility": "
       <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
       <deleted-sources valType="String">[]</deleted-sources>
       <last-updated valType="Int64">0</last-updated>
-      <last-modified-by-usage valType="String">{"Extrinsic": 12586, "Input": 12484, "Output": 1661}</last-modified-by-usage>
+      <last-modified-by-usage valType="String">{"Extrinsic": 12586, "Input": 13846, "Output": 1661}</last-modified-by-usage>
       <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
       <contains-significant-data valType="Boolean">true</contains-significant-data>
       <Object Name="/Schematic/System:TS" Version="1.0">

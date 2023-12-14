@@ -1,12 +1,12 @@
-# State file created:  2023/12/14 09:52:11
+# State file created:  2023/12/14 13:55:00
 # CFX-23.1
 
 CALCULATOR:
   Case Name = Case CFX
-  Expression = Temperature
+  Expression = Mach Number
   Fluid = All Fluids
-  Function = area
-  Location = IGV Inlet
+  Function = probe
+  Location = Probe Point
   Verbose = Off
 END
 CHART:Component 1 Blade Loading Chart
@@ -3561,7 +3561,7 @@ DATA READER:
   Current Case List = Case CFX,Case TS 2
   Current Case Name = C:/Users/alebostr/Desktop/DT3_files/cfd/cfdrun_files/dp0/\
 TS-2/TS/TS-2.gtm
-  Current Results File = C:/Users/alebostr/.cfx/CFX_TEMP_15896/TS-2.def
+  Current Results File = C:/Users/alebostr/.cfx/CFX_TEMP_5336/TS-2.def
   Current Timestep = -1
   Current Timevalue = 0
   Edit Case Names = false
@@ -3589,10 +3589,10 @@ TS-2/TS/TS-2.gtm
   Timevalue Match Criterion = Same Value
   CASE:Case CFX
     Construct Variables From Fourier Coefficients = True
-    Current Case Name = C:\Users\alebostr\Desktop\DT3\cfd\cfdrun_files\dp0\CFX\\
-CFX\CFX_008.res
-    Current Results File = C:\Users\alebostr\Desktop\DT3\cfd\cfdrun_files\dp0\\
-CFX\CFX\CFX_008.res
+    Current Case Name = Z:\MMS175\DT3\cfd\cfdrun_files\dp0\CFX\CFX\\
+CFX_008.res
+    Current Results File = Z:\MMS175\DT3\cfd\cfdrun_files\dp0\CFX\CFX\\
+CFX_008.res
     Current Timestep = -1
     Current Timevalue = 0
     File Angle Units = rad
@@ -4455,7 +4455,7 @@ CFX\CFX\CFX_008.res
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = Off
+      Visibility = On
     END
     COMPOSITE:BLADE 2
       Apply Instancing Transform = On
@@ -4489,7 +4489,7 @@ CFX\CFX\CFX_008.res
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = Off
+      Visibility = On
     END
     COMPOSITE:BLADE 3
       Apply Instancing Transform = On
@@ -4523,7 +4523,7 @@ CFX\CFX\CFX_008.res
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = Off
+      Visibility = On
     END
     COMPOSITE:BLD GEO HIGH
       Apply Instancing Transform = On
@@ -4965,7 +4965,7 @@ CFX\CFX\CFX_008.res
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = Off
+      Visibility = On
     END
     COMPOSITE:HUB 2
       Apply Instancing Transform = On
@@ -4999,7 +4999,7 @@ CFX\CFX\CFX_008.res
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = Off
+      Visibility = On
     END
     COMPOSITE:HUB 3
       Apply Instancing Transform = On
@@ -5033,7 +5033,7 @@ CFX\CFX\CFX_008.res
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = Off
+      Visibility = On
     END
     COMPOSITE:INFLOW
       Apply Instancing Transform = On
@@ -6942,7 +6942,7 @@ CFX\CFX\CFX_008.res
     Construct Variables From Fourier Coefficients = true
     Current Case Name = C:/Users/alebostr/Desktop/DT3_files/cfd/cfdrun_files/\
 dp0/TS-2/TS/TS-2.gtm
-    Current Results File = C:/Users/alebostr/.cfx/CFX_TEMP_15896/TS-2.def
+    Current Results File = C:/Users/alebostr/.cfx/CFX_TEMP_5336/TS-2.def
     Current Timestep = -1
     Current Timevalue = 0
     File Angle Units = rad
@@ -7124,7 +7124,7 @@ dp0/TS-2/TS/TS-2.gtm
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = false
+      Visibility = On
     END
     BOUNDARY:INFLOW Passage
       Apply Instancing Transform = On
@@ -7362,7 +7362,7 @@ dp0/TS-2/TS/TS-2.gtm
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = false
+      Visibility = On
     END
     COMPOSITE:BLD GEO HIGH
       Apply Instancing Transform = On
@@ -7532,7 +7532,7 @@ dp0/TS-2/TS/TS-2.gtm
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = false
+      Visibility = On
     END
     COMPOSITE:INFLOW
       Apply Instancing Transform = On
@@ -7955,7 +7955,7 @@ dp0/TS-2/TS/TS-2.gtm
       Tile Texture = Off
       Transform Texture = Off
       Transparency = 0.0
-      Visibility = false
+      Visibility = On
     END
     PRIMITIVE2D:INFLOW Passage Region
       Apply Instancing Transform = On
@@ -8239,8 +8239,7 @@ DEFAULT LEGEND:Default Legend View 1
   Legend Aspect = 0.07
   Legend Format = %10.3e
   Legend Orientation = Vertical
-  Legend Plot = /TURBO SURFACE:Complete Geometry Meridional View Wireframe \
-Highlight
+  Legend Plot = /INTERNAL TURBO SURFACE:Blade to Blade Surface
   Legend Position = 0.02, 0.15
   Legend Resolution = 256
   Legend Shading = Smooth
@@ -8263,8 +8262,7 @@ DEFAULT LEGEND:Default Legend View 2
   Legend Aspect = 0.07
   Legend Format = %10.3e
   Legend Orientation = Vertical
-  Legend Plot = /TURBO SURFACE:Complete Geometry Meridional View Wireframe \
-Highlight
+  Legend Plot = /INTERNAL TURBO SURFACE:Blade to Blade Surface
   Legend Position = 0.02, 0.15
   Legend Resolution = 256
   Legend Shading = Smooth
@@ -8287,8 +8285,7 @@ DEFAULT LEGEND:Default Legend View 3
   Legend Aspect = 0.07
   Legend Format = %10.3e
   Legend Orientation = Vertical
-  Legend Plot = /TURBO SURFACE:Complete Geometry Meridional View Wireframe \
-Highlight
+  Legend Plot = /INTERNAL TURBO SURFACE:Blade to Blade Surface
   Legend Position = 0.02, 0.15
   Legend Resolution = 256
   Legend Shading = Smooth
@@ -8311,8 +8308,7 @@ DEFAULT LEGEND:Default Legend View 4
   Legend Aspect = 0.07
   Legend Format = %10.3e
   Legend Orientation = Vertical
-  Legend Plot = /TURBO SURFACE:Complete Geometry Meridional View Wireframe \
-Highlight
+  Legend Plot = /INTERNAL TURBO SURFACE:Blade to Blade Surface
   Legend Position = 0.02, 0.15
   Legend Resolution = 256
   Legend Shading = Smooth
@@ -8336,25 +8332,30 @@ EXPORT:
   ANSYS Export Data = Element Heat Flux
   ANSYS File Format = ANSYS
   ANSYS Fluid Selection = All Fluids
-  ANSYS Specify Reference Temperature = false
+  ANSYS Reference Temperature = 0.0 [K]
+  ANSYS Specify Reference Temperature = Off
+  ANSYS Supplemental HTC = 0.0 [W m^-2 K^-1]
   BC Profile Type = Inlet Velocity
   CSV Type = CSV
+  Case Name = Case CFX
   Case Summary Format = XML
   Case Summary Type = ANSYS FSI
   Export Chart Name = Component 1 Spanwise Flow Angles at LE Chart
-  Export Connectivity = false
+  Export Connectivity = Off
   Export Coord Frame = Global
-  Export File = C:/Users/alebostr/Desktop/test.csv
-  Export Geometry = true
-  Export Node Numbers = false
-  Export Null Data = True
+  Export File = Z:/MMS175/DT3/cfd/cfdrun_files/user_files/GEN1.csv
+  Export Geometry = On
+  Export Node Numbers = Off
+  Export Null Data = On
   Export Type = Generic
   Export Units System = Current
   Export Variable Type = Current
   External Export Data = None
   Heat Flow Sign Flipping = Automatic
-  Include File Information = false
-  Include Header = true
+  Include File Information = Off
+  Include Header = On
+  Location = IGV Blade
+  Location List = IGV Blade
   Null Token = null
   Overwrite = On
   Precision = 8
@@ -8368,6 +8369,22 @@ FILE PROCESSING:
   Path Stack = .
   Processing Mode = None
   Supress File Replacement Warnings = false
+END
+HARDCOPY:
+  Antialiasing = On
+  Hardcopy Filename = Z:/MMS175/DT3/img/ENTMERIDGEN1.jpg
+  Hardcopy Format = jpg
+  Hardcopy Tolerance = 0.0001
+  Image Height = 600
+  Image Scale = 100
+  Image Width = 600
+  JPEG Image Quality = 80
+  Paper Orientation = Landscape
+  Paper Size = Letter
+  Print Line Width = 1
+  Print Quality = High
+  Use Screen Size = On
+  White Background = Off
 END
 INSTANCE TRANSFORM:Component 1 Instance Transform
   Angle Definition Method = Instances in 360
@@ -8440,7 +8457,7 @@ INTERNAL CONTOUR:Blade to Blade Contour
   Clip Contour = Off
   Colour Map = Default Colour Map
   Colour Scale = Linear
-  Colour Variable = Mach Number
+  Colour Variable = Static Entropy
   Colour Variable Boundary Values = Hybrid
   Constant Contour Colour = Off
   Contour Range = Global
@@ -8455,6 +8472,40 @@ INTERNAL CONTOUR:Blade to Blade Contour
   Line Colour Mode = Default
   Line Width = 1
   Location List = Blade to Blade Surface
+  Max = 0.0 [J kg^-1 K^-1]
+  Min = 0.0 [J kg^-1 K^-1]
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = false
+  Value List = 0 [J kg^-1 K^-1],1 [J kg^-1 K^-1]
+  Visibility = On
+END
+INTERNAL CONTOUR:Blade to Blade Contour MN5
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Mach Number
+  Colour Variable Boundary Values = Hybrid
+  Constant Contour Colour = Off
+  Contour Range = Global
+  Culling Mode = No Culling
+  Domain List = All Domains
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = Default Transform
+  Lighting = true
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = Blade to Blade Surface MN5
   Max = 0.0
   Min = 0.0
   Number of Contours = 11
@@ -8468,6 +8519,108 @@ INTERNAL CONTOUR:Blade to Blade Contour
   Use Face Values = false
   Value List = 0,1
   Visibility = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour MN50
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Mach Number
+  Colour Variable Boundary Values = Hybrid
+  Constant Contour Colour = Off
+  Contour Range = Global
+  Culling Mode = No Culling
+  Domain List = All Domains
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = Default Transform
+  Lighting = true
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = Blade to Blade Surface MN50
+  Max = 0.0
+  Min = 0.0
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = false
+  Value List = 0,1
+  Visibility = On
+END
+INTERNAL CONTOUR:Blade to Blade Contour MN95
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Mach Number
+  Colour Variable Boundary Values = Hybrid
+  Constant Contour Colour = Off
+  Contour Range = Global
+  Culling Mode = No Culling
+  Domain List = All Domains
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = Default Transform
+  Lighting = true
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = Blade to Blade Surface MN95
+  Max = 0.0
+  Min = 0.0
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = false
+  Value List = 0,1
+  Visibility = On
+END
+INTERNAL CONTOUR:Meridional Contour
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable = Static Entropy ACA on Meridional Surface
+  Colour Variable Boundary Values = Hybrid
+  Constant Contour Colour = Off
+  Contour Range = Global
+  Culling Mode = No Culling
+  Domain List = All Domains
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = Default Transform
+  Lighting = true
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Location List = Meridional Surface
+  Max = 0.0 [J kg^-1 K^-1]
+  Min = 0.0 [J kg^-1 K^-1]
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = false
+  Value List = 0 [J kg^-1 K^-1],1 [J kg^-1 K^-1]
+  Visibility = On
 END
 INTERNAL SURFACE GROUP:Meridional Blade Wireframe
   Apply Instancing Transform = On
@@ -8488,9 +8641,7 @@ INTERNAL SURFACE GROUP:Meridional Blade Wireframe
   Line Colour = 0.6, 0.6, 0.6
   Line Colour Mode = User Specified
   Line Width = 2
-  Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/\
-CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/\
-DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+  Location List = BLADE,BLADE 2,BLADE 3
   Number of Contours = 11
   Range = Global
   Render Edge Angle = 0
@@ -8508,6 +8659,67 @@ DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
   Visibility = Off
 END
 INTERNAL TURBO SURFACE:Blade to Blade Surface
+  Apply Instancing Transform = On
+  Apply Texture = Off
+  Axial Points = 10
+  Blend Texture = On
+  Circumferential Average Mode = None
+  Clip Cone = On
+  Colour = 0.75, 0.75, 0.75
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable Boundary Values = Hybrid
+  Culling Mode = No Culling
+  Draw Contours = Off
+  Draw Faces = Off
+  Draw Lines = Off
+  Instancing Transform = Default Transform
+  Invert Surface Bound = Off
+  Lighting = true
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Maximum Number of Sampling Points = 20
+  Number of Contours = 11
+  Option = Constant Span
+  Point 1 = 0.0, 0.0, 0.0
+  Point 2 = 1.0, 0.0, 0.0
+  Point Coord System = Cartesian
+  Radial Points = 10
+  Range = Global
+  Render Edge Angle = 0 [degree]
+  Span = 0.95
+  Span Max = 1.0
+  Span Min = 0.0
+  Span Points = 10
+  Specular Lighting = On
+  Streamwise Location = 0.5
+  Streamwise Max = 1.0
+  Streamwise Min = 0.0
+  Streamwise Points = 10
+  Surface Bound = None
+  Surface Drawing = Smooth Shading
+  Surface Type = Slice
+  Texture Angle = 0
+  Texture Direction = 0.0, 1.0, 0.0
+  Texture Material = Metal
+  Texture Position = 0.0, 0.0
+  Texture Scale = 1.0
+  Texture Type = Predefined
+  Theta = 0.0 [degree]
+  Theta Max = 360 [degree]
+  Theta Min = 0 [degree]
+  Theta Points = 10
+  Theta Surface Variable = Theta
+  Tile Texture = Off
+  Transform Texture = Off
+  Transparency = 0.0
+  Turbo Domain List = /DOMAIN GROUP:All Domains
+  Turbo View Plot Type = Contour
+  Visibility = On
+END
+INTERNAL TURBO SURFACE:Blade to Blade Surface MN5
   Apply Instancing Transform = On
   Apply Texture = Off
   Axial Points = 10
@@ -8568,6 +8780,128 @@ INTERNAL TURBO SURFACE:Blade to Blade Surface
   Turbo View Plot Type = Contour
   Visibility = Off
 END
+INTERNAL TURBO SURFACE:Blade to Blade Surface MN50
+  Apply Instancing Transform = On
+  Apply Texture = Off
+  Axial Points = 10
+  Blend Texture = On
+  Circumferential Average Mode = None
+  Clip Cone = On
+  Colour = 0.75, 0.75, 0.75
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable Boundary Values = Hybrid
+  Culling Mode = No Culling
+  Draw Contours = Off
+  Draw Faces = Off
+  Draw Lines = Off
+  Instancing Transform = Default Transform
+  Invert Surface Bound = Off
+  Lighting = true
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Maximum Number of Sampling Points = 20
+  Number of Contours = 11
+  Option = Constant Span
+  Point 1 = 0.0, 0.0, 0.0
+  Point 2 = 1.0, 0.0, 0.0
+  Point Coord System = Cartesian
+  Radial Points = 10
+  Range = Global
+  Render Edge Angle = 0 [degree]
+  Span = 0.5
+  Span Max = 1.0
+  Span Min = 0.0
+  Span Points = 10
+  Specular Lighting = On
+  Streamwise Location = 0.5
+  Streamwise Max = 1.0
+  Streamwise Min = 0.0
+  Streamwise Points = 10
+  Surface Bound = None
+  Surface Drawing = Smooth Shading
+  Surface Type = Slice
+  Texture Angle = 0
+  Texture Direction = 0.0, 1.0, 0.0
+  Texture Material = Metal
+  Texture Position = 0.0, 0.0
+  Texture Scale = 1.0
+  Texture Type = Predefined
+  Theta = 0.0 [degree]
+  Theta Max = 360 [degree]
+  Theta Min = 0 [degree]
+  Theta Points = 10
+  Theta Surface Variable = Theta
+  Tile Texture = Off
+  Transform Texture = Off
+  Transparency = 0.0
+  Turbo Domain List = /DOMAIN GROUP:All Domains
+  Turbo View Plot Type = Contour
+  Visibility = Off
+END
+INTERNAL TURBO SURFACE:Blade to Blade Surface MN95
+  Apply Instancing Transform = On
+  Apply Texture = Off
+  Axial Points = 10
+  Blend Texture = On
+  Circumferential Average Mode = None
+  Clip Cone = On
+  Colour = 0.75, 0.75, 0.75
+  Colour Map = Default Colour Map
+  Colour Mode = Constant
+  Colour Scale = Linear
+  Colour Variable Boundary Values = Hybrid
+  Culling Mode = No Culling
+  Draw Contours = Off
+  Draw Faces = Off
+  Draw Lines = Off
+  Instancing Transform = Default Transform
+  Invert Surface Bound = Off
+  Lighting = true
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Line Width = 1
+  Maximum Number of Sampling Points = 20
+  Number of Contours = 11
+  Option = Constant Span
+  Point 1 = 0.0, 0.0, 0.0
+  Point 2 = 1.0, 0.0, 0.0
+  Point Coord System = Cartesian
+  Radial Points = 10
+  Range = Global
+  Render Edge Angle = 0 [degree]
+  Span = 0.95
+  Span Max = 1.0
+  Span Min = 0.0
+  Span Points = 10
+  Specular Lighting = On
+  Streamwise Location = 0.5
+  Streamwise Max = 1.0
+  Streamwise Min = 0.0
+  Streamwise Points = 10
+  Surface Bound = None
+  Surface Drawing = Smooth Shading
+  Surface Type = Slice
+  Texture Angle = 0
+  Texture Direction = 0.0, 1.0, 0.0
+  Texture Material = Metal
+  Texture Position = 0.0, 0.0
+  Texture Scale = 1.0
+  Texture Type = Predefined
+  Theta = 0.0 [degree]
+  Theta Max = 360 [degree]
+  Theta Min = 0 [degree]
+  Theta Points = 10
+  Theta Surface Variable = Theta
+  Tile Texture = Off
+  Transform Texture = Off
+  Transparency = 0.0
+  Turbo Domain List = /DOMAIN GROUP:All Domains
+  Turbo View Plot Type = Contour
+  Visibility = Off
+END
 INTERNAL TURBO SURFACE:Meridional Surface
   Apply Instancing Transform = On
   Apply Texture = Off
@@ -8579,11 +8913,11 @@ INTERNAL TURBO SURFACE:Meridional Surface
   Colour Map = Default Colour Map
   Colour Mode = Variable
   Colour Scale = Linear
-  Colour Variable = Pressure
+  Colour Variable = Static Entropy
   Colour Variable Boundary Values = Hybrid
   Culling Mode = No Culling
   Draw Contours = Off
-  Draw Faces = On
+  Draw Faces = Off
   Draw Lines = On
   Instancing Transform = Default Transform
   Invert Surface Bound = Off
@@ -8601,7 +8935,10 @@ INTERNAL TURBO SURFACE:Meridional Surface
   Point Coord System = Cartesian
   Radial Points = 10
   Range = Global
-  Related Variable List = Pressure ACA on Meridional Surface
+  Related Variable List = Pressure ACA on Meridional Surface, Mach Number ACA \
+on Meridional Surface, Mach Number MCA on Meridional Surface, Mach Number LCA on \
+Meridional Surface, Total Enthalpy ACA on Meridional Surface, Static Entropy ACA \
+on Meridional Surface
   Render Edge Angle = 0
   Span = 0.5
   Span Max = 1.0
@@ -8630,7 +8967,7 @@ INTERNAL TURBO SURFACE:Meridional Surface
   Transform Texture = Off
   Transparency = 0.0
   Turbo Domain List = /DOMAIN GROUP:All Domains
-  Turbo View Plot Type = Colour
+  Turbo View Plot Type = Contour
   Visibility = On
 END
 LEGEND:Blade to Blade Legend
@@ -8655,19 +8992,85 @@ LEGEND:Blade to Blade Legend
   Text Rotation = 0
   Visibility = On
 END
+LEGEND:Blade to Blade Legend MN5
+  Colour = 0, 0, 0
+  Font = Sans Serif
+  Legend Aspect = 0.07
+  Legend Format = %10.3e
+  Legend Orientation = Vertical
+  Legend Plot = Blade to Blade Contour MN5
+  Legend Position = 0.02, 0.15
+  Legend Resolution = 256
+  Legend Shading = Smooth
+  Legend Size = 0.6
+  Legend Ticks = 5
+  Legend Title = Legend
+  Legend Title Mode = Variable
+  Legend X Justification = Left
+  Legend Y Justification = Top
+  Show Legend Units = On
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Text Rotation = 0
+  Visibility = On
+END
+LEGEND:Blade to Blade Legend MN50
+  Colour = 0, 0, 0
+  Font = Sans Serif
+  Legend Aspect = 0.07
+  Legend Format = %10.3e
+  Legend Orientation = Vertical
+  Legend Plot = Blade to Blade Contour MN50
+  Legend Position = 0.02, 0.15
+  Legend Resolution = 256
+  Legend Shading = Smooth
+  Legend Size = 0.6
+  Legend Ticks = 5
+  Legend Title = Legend
+  Legend Title Mode = Variable
+  Legend X Justification = Left
+  Legend Y Justification = Top
+  Show Legend Units = On
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Text Rotation = 0
+  Visibility = On
+END
+LEGEND:Blade to Blade Legend MN95
+  Colour = 0, 0, 0
+  Font = Sans Serif
+  Legend Aspect = 0.07
+  Legend Format = %10.3e
+  Legend Orientation = Vertical
+  Legend Plot = Blade to Blade Contour MN95
+  Legend Position = 0.02, 0.15
+  Legend Resolution = 256
+  Legend Shading = Smooth
+  Legend Size = 0.6
+  Legend Ticks = 5
+  Legend Title = Legend
+  Legend Title Mode = Variable
+  Legend X Justification = Left
+  Legend Y Justification = Top
+  Show Legend Units = On
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Text Rotation = 0
+  Visibility = On
+END
 LEGEND:Meridional Legend
   Colour = 0, 0, 0
   Font = Sans Serif
   Legend Aspect = 0.07
   Legend Format = %10.3e
   Legend Orientation = Vertical
-  Legend Plot = Meridional Surface
+  Legend Plot = Meridional Contour
   Legend Position = 0.02, 0.15
   Legend Resolution = 256
   Legend Shading = Smooth
   Legend Size = 0.6
   Legend Ticks = 5
-  Legend Title = Pressure
+  Legend Title = Static Entropy
   Legend Title Mode = User Specified
   Legend X Justification = Left
   Legend Y Justification = Top
@@ -9565,7 +9968,7 @@ CHART:Component 2 Spanwise Meridional Velocity at TE Chart,/CHART:Component 3 \
 Spanwise Flow Angles at LE Chart,/CHART:Component 3 Spanwise Relative Mach \
 Number at LE Chart,/CHART:Component 3 Spanwise Flow Angles at TE Chart,/\
 CHART:Component 3 Spanwise Mach Number at TE Chart,/CHART:Component 3 Spanwise \
-Meridional Velocity at TE Chart
+Meridional Velocity at TE Chart,/VIEW:MN5,/VIEW:MN50,/VIEW:MN95
   FILE INFORMATION OPTIONS:
     Include In Report = false
     This Exists = true
@@ -9849,6 +10252,9 @@ END
 SCALAR VARIABLE:Mach Number ACA on Component 3 Spanwise Relative Mach Number at LE Chart Mach Number Turbo Line
   Boundary Values = Conservative
 END
+SCALAR VARIABLE:Mach Number ACA on Meridional Surface
+  Boundary Values = Conservative
+END
 SCALAR VARIABLE:Mach Number ACA on Stage 1 M rel Meridional Surface
   Boundary Values = Conservative
 END
@@ -9856,6 +10262,12 @@ SCALAR VARIABLE:Mach Number ACA on Stage 2 M rel Meridional Surface
   Boundary Values = Conservative
 END
 SCALAR VARIABLE:Mach Number ACA on Streamwise Mach Number Chart Turbo Line
+  Boundary Values = Conservative
+END
+SCALAR VARIABLE:Mach Number LCA on Meridional Surface
+  Boundary Values = Conservative
+END
+SCALAR VARIABLE:Mach Number MCA on Meridional Surface
   Boundary Values = Conservative
 END
 SCALAR VARIABLE:Mach Number in Stn Frame
@@ -10039,6 +10451,9 @@ END
 SCALAR VARIABLE:Static Entropy
   Boundary Values = Conservative
 END
+SCALAR VARIABLE:Static Entropy ACA on Meridional Surface
+  Boundary Values = Conservative
+END
 SCALAR VARIABLE:Static Entropy MCA on Streamwise Entropy Chart Turbo Line
   Boundary Values = Conservative
 END
@@ -10100,6 +10515,10 @@ SCALAR VARIABLE:Total Density in Stn Frame
   Boundary Values = Conservative
 END
 SCALAR VARIABLE:Total Enthalpy
+  Boundary Values = Conservative
+  User Units = J kg^-1
+END
+SCALAR VARIABLE:Total Enthalpy ACA on Meridional Surface
   Boundary Values = Conservative
   User Units = J kg^-1
 END
@@ -16335,19 +16754,19 @@ VIEW:Blade to Blade View
   Highlight Type = Surface Mesh
   Is A Figure = false
   Light Angle = 42.526, 111.038
-  Object Visibility List = /INTERNAL CONTOUR:Blade to Blade Contour,/\
-LEGEND:Blade to Blade Legend
+  Object Visibility List = /INTERNAL CONTOUR:Blade to Blade Contour,/INTERNAL \
+TURBO SURFACE:Blade to Blade Surface,/LEGEND:Blade to Blade Legend
   Projection = Orthographic
   Ruler Visibility = true
   Standard View = Isometric Y
   Valid Case = Case CFX
   CAMERA:
     Option = Pivot Point and Quaternion
-    Pan = 0, 0
-    Pivot Point = 0.481448, 0.206467, 0.49984
+    Pan = 0,0
+    Pivot Point = 0.12223,0.259254,0.949903
     Rotation = -90, 0, 0
-    Rotation Quaternion = 0, 0, -0.707107, 0.707107
-    Scale = 2.24222
+    Rotation Quaternion = 0,0,-0.707107,0.707107
+    Scale = 2.4175
     Send To Viewer = True
   END
 END
@@ -16388,6 +16807,114 @@ Blades SG,/TURBO SURFACE:Complete Geometry Meridional View Wireframe Highlight
     Report Caption = Complete meridional view of the flow passage and blades
   END
 END
+VIEW:MN5
+  Angular Coord Shift = 0.0 [degree]
+  Auto Center = false
+  Axis Visibility = true
+  Border Visibility = false
+  Camera Mode = User Specified
+  Clip Scene = false
+  Coord Transform = 2D Blade-to-blade
+  Hide Difference Case = false
+  Highlight Type = Surface Mesh
+  Is A Figure = true
+  Light Angle = 42.526, 111.038
+  Local Object List = /INTERNAL CONTOUR:Blade to Blade Contour MN5,/\
+LEGEND:Blade to Blade Legend MN5,/INTERNAL TURBO SURFACE:Blade to Blade Surface \
+MN5
+  Object Visibility List = /INTERNAL CONTOUR:Blade to Blade Contour MN5,/\
+LEGEND:Blade to Blade Legend MN5
+  Projection = Orthographic
+  Ruler Visibility = true
+  Standard View = Isometric Y
+  Valid Case = Case CFX
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pan = -0.0850881,-0.155768
+    Pivot Point = 0.481448,0.206467,0.49984
+    Rotation = -90, 0, 0
+    Rotation Quaternion = 0,0,-0.707107,0.707107
+    Scale = 2.4175
+    Send To Viewer = True
+  END
+  OBJECT REPORT OPTIONS:
+    Automatic Item = None
+    Generation = Manual
+    Report Caption = Mach numbers at 5%
+  END
+END
+VIEW:MN50
+  Angular Coord Shift = 0.0 [degree]
+  Auto Center = false
+  Axis Visibility = true
+  Border Visibility = false
+  Camera Mode = User Specified
+  Clip Scene = false
+  Coord Transform = 2D Blade-to-blade
+  Hide Difference Case = false
+  Highlight Type = Surface Mesh
+  Is A Figure = true
+  Light Angle = 42.526, 111.038
+  Local Object List = /INTERNAL CONTOUR:Blade to Blade Contour MN50,/\
+LEGEND:Blade to Blade Legend MN50,/INTERNAL TURBO SURFACE:Blade to Blade Surface \
+MN50
+  Object Visibility List = /INTERNAL CONTOUR:Blade to Blade Contour MN50,/\
+LEGEND:Blade to Blade Legend MN50
+  Projection = Orthographic
+  Ruler Visibility = true
+  Standard View = Isometric Y
+  Valid Case = Case CFX
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pan = -0.0850881, -0.155768
+    Pivot Point = 0.481448, 0.206467, 0.49984
+    Rotation = -90, 0, 0
+    Rotation Quaternion = 0, 0, -0.707107, 0.707107
+    Scale = 2.4175
+    Send To Viewer = True
+  END
+  OBJECT REPORT OPTIONS:
+    Automatic Item = None
+    Generation = Manual
+    Report Caption = Mach numbers at 50%
+  END
+END
+VIEW:MN95
+  Angular Coord Shift = 0.0 [degree]
+  Auto Center = false
+  Axis Visibility = true
+  Border Visibility = false
+  Camera Mode = User Specified
+  Clip Scene = false
+  Coord Transform = 2D Blade-to-blade
+  Hide Difference Case = false
+  Highlight Type = Surface Mesh
+  Is A Figure = true
+  Light Angle = 42.526, 111.038
+  Local Object List = /INTERNAL CONTOUR:Blade to Blade Contour MN95,/\
+LEGEND:Blade to Blade Legend MN95,/INTERNAL TURBO SURFACE:Blade to Blade Surface \
+MN95
+  Object Visibility List = /INTERNAL CONTOUR:Blade to Blade Contour MN95,/\
+LEGEND:Blade to Blade Legend MN95
+  Projection = Orthographic
+  Ruler Visibility = true
+  Standard View = Isometric Y
+  Valid Case = Case CFX
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pan = -0.0850881,-0.155768
+    Pivot Point = 0.481448,0.206467,0.49984
+    Rotation = -90, 0, 0
+    Rotation Quaternion = 0,0,-0.707107,0.707107
+    Scale = 2.4175
+    Send To Viewer = True
+  END
+  OBJECT REPORT OPTIONS:
+    Automatic Item = None
+    Generation = Manual
+    Report Caption = Mach numbers at 95%
+  END
+END
 VIEW:Meridional View
   Angular Coord Shift = 0.0
   Auto Center = false
@@ -16400,19 +16927,19 @@ VIEW:Meridional View
   Highlight Type = Surface Mesh
   Is A Figure = false
   Light Angle = 50, 110
-  Object Visibility List = /INTERNAL TURBO SURFACE:Meridional Surface,/\
-LEGEND:Meridional Legend
+  Object Visibility List = /INTERNAL CONTOUR:Meridional Contour,/INTERNAL \
+TURBO SURFACE:Meridional Surface,/LEGEND:Meridional Legend
   Projection = Orthographic
   Ruler Visibility = true
   Standard View = Isometric Y
-  Valid Case = All Cases
+  Valid Case = Case CFX
   CAMERA:
     Option = Pivot Point and Quaternion
-    Pan = 0, 0
-    Pivot Point = 0.04965, 0, 0.27215
+    Pan = 0,0
+    Pivot Point = 0.04965,0,0.27215
     Rotation = -90, 0, 0
-    Rotation Quaternion = -0.707107, 0, 0, 0.707107
-    Scale = 13.7882
+    Rotation Quaternion = -0.707107,0,0,0.707107
+    Scale = 14.1329
     Send To Viewer = True
   END
 END
@@ -16517,11 +17044,11 @@ LEGEND:Stage 1 Contour M rel Span 50 Legend
   Valid Case = All Cases
   CAMERA:
     Option = Pivot Point and Quaternion
-    Pan = 0,0
-    Pivot Point = 0.14107,0.0767174,0.499902
+    Pan = 0, 0
+    Pivot Point = 0.14107, 0.0767174, 0.499902
     Rotation = -90, 0, 0
-    Rotation Quaternion = 0,0,-0.707107,0.707107
-    Scale = 11.0088
+    Rotation Quaternion = 0, 0, -0.707107, 0.707107
+    Scale = 8.6103
     Send To Viewer = True
   END
   OBJECT REPORT OPTIONS:
@@ -16978,7 +17505,8 @@ VIEW:Turbo Initialisation View
   Highlight Type = Surface Mesh
   Is A Figure = false
   Light Angle = 50, 110
-  Object Visibility List = /WIREFRAME:Wireframe
+  Object Visibility List = /COMPHIGHLIGHT:Component 1,/COMPHIGHLIGHT:Component \
+2,/COMPHIGHLIGHT:Component 3,/WIREFRAME:Wireframe
   Projection = Orthographic
   Ruler Visibility = true
   Standard View = Isometric Y
@@ -17005,18 +17533,24 @@ VIEW:Turbo Regions View
   Highlight Type = Surface Mesh
   Is A Figure = false
   Light Angle = 50, 110
-  Object Visibility List = /WIREFRAME:Wireframe
+  Object Visibility List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA \
+READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/\
+COMPOSITE:BLADE 3,/DATA READER/CASE:Case CFX/COMPOSITE:HUB,/DATA READER/\
+CASE:Case CFX/COMPOSITE:HUB 2,/DATA READER/CASE:Case CFX/COMPOSITE:HUB 3,/DATA \
+READER/CASE:Case TS 2/BOUNDARY:HUB Passage,/DATA READER/CASE:Case TS 2/\
+COMPOSITE:BLADE,/DATA READER/CASE:Case TS 2/COMPOSITE:HUB,/DATA READER/CASE:Case \
+TS 2/PRIMITIVE2D:HUB Passage Region,/WIREFRAME:Wireframe
   Projection = Orthographic
   Ruler Visibility = true
   Standard View = Isometric Y
   Valid Case = Case CFX
   CAMERA:
     Option = Pivot Point and Quaternion
-    Pan = 0, 0
-    Pivot Point = 0.04965, 0.242468, 0.109623
+    Pan = -0.0415618, -0.00891764
+    Pivot Point = 0.04965, 0.269512, 0.0738625
     Rotation = -90, 0, 0
-    Rotation Quaternion = 0.612932, 0.183744, -0.221131, 0.735981
-    Scale = 9.72093
+    Rotation Quaternion = 0.67244, -0.0297641, -0.00823219, 0.739508
+    Scale = 10.7643
     Send To Viewer = True
   END
 END
@@ -17143,7 +17677,7 @@ VIEWPORT MANAGER:
   Synchronize Camera = false
   Synchronize Visibility = false
   View Length Units = m
-  Viewport 1 View = Stage 1 Contour M rel Span 50 View
+  Viewport 1 View = Blade to Blade View
   Viewport 2 View = View 1
   Viewport 3 View = View 3
   Viewport 4 View = View 4
