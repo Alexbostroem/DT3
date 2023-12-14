@@ -1,0 +1,748 @@
+LIBRARY:
+  CEL:
+    EXPRESSIONS:
+      massflowExp = 70*massFlow()@IGV Inlet
+    END
+  END
+  MATERIAL: Air Ideal Gas
+    Material Description = Air Ideal Gas (constant Cp)
+    Material Group = Air Data, Calorically Perfect Ideal Gases
+    Option = Pure Substance
+    Thermodynamic State = Gas
+    PROPERTIES:
+      Option = General Material
+      EQUATION OF STATE:
+        Molar Mass = 28.96 [kg kmol^-1]
+        Option = Ideal Gas
+      END
+      SPECIFIC HEAT CAPACITY:
+        Option = Value
+        Specific Heat Capacity = 1.0044E+03 [J kg^-1 K^-1]
+        Specific Heat Type = Constant Pressure
+      END
+      REFERENCE STATE:
+        Option = Specified Point
+        Reference Pressure = 1 [atm]
+        Reference Specific Enthalpy = 0. [J/kg]
+        Reference Specific Entropy = 0. [J/kg/K]
+        Reference Temperature = 25 [C]
+      END
+      DYNAMIC VISCOSITY:
+        Dynamic Viscosity = 1.831E-05 [kg m^-1 s^-1]
+        Option = Value
+      END
+      THERMAL CONDUCTIVITY:
+        Option = Value
+        Thermal Conductivity = 2.61E-2 [W m^-1 K^-1]
+      END
+      ABSORPTION COEFFICIENT:
+        Absorption Coefficient = 0.01 [m^-1]
+        Option = Value
+      END
+      SCATTERING COEFFICIENT:
+        Option = Value
+        Scattering Coefficient = 0.0 [m^-1]
+      END
+      REFRACTIVE INDEX:
+        Option = Value
+        Refractive Index = 1.0 [m m^-1]
+      END
+    END
+  END
+END
+FLOW: Flow Analysis 1
+  SOLUTION UNITS:
+    Angle Units = [rad]
+    Length Units = [m]
+    Mass Units = [kg]
+    Solid Angle Units = [sr]
+    Temperature Units = [K]
+    Time Units = [s]
+  END
+  ANALYSIS TYPE:
+    Option = Steady State
+    EXTERNAL SOLVER COUPLING:
+      Option = None
+    END
+  END
+  DOMAIN: IGV
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Passage 2
+    BOUNDARY: IGV Blade
+      Boundary Type = WALL
+      Location = BLADE 2
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: IGV Hub
+      Boundary Type = WALL
+      Location = HUB 2
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: IGV Inlet
+      Boundary Type = INLET
+      Location = INFLOW 2
+      BOUNDARY CONDITIONS:
+        FLOW DIRECTION:
+          Option = Normal to Boundary Condition
+        END
+        FLOW REGIME:
+          Option = Subsonic
+        END
+        HEAT TRANSFER:
+          Option = Total Temperature
+          Total Temperature = 517.4 [K]
+        END
+        MASS AND MOMENTUM:
+          Option = Total Pressure
+          Relative Pressure = 386.451 [kPa]
+        END
+        TURBULENCE:
+          Option = Medium Intensity and Eddy Viscosity Ratio
+        END
+      END
+    END
+    BOUNDARY: IGV Shroud
+      Boundary Type = WALL
+      Location = SHROUD 2
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: IGV to IGV Periodic 1 Side 1
+      Boundary Type = INTERFACE
+      Location = PER1 2
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    BOUNDARY: IGV to IGV Periodic 1 Side 2
+      Boundary Type = INTERFACE
+      Location = PER2 2
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    BOUNDARY: R1 to IGV Side 2
+      Boundary Type = INTERFACE
+      Location = OUTFLOW 2
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    DOMAIN MODELS:
+      BUOYANCY MODEL:
+        Option = Non Buoyant
+      END
+      DOMAIN MOTION:
+        Option = Stationary
+      END
+      MESH DEFORMATION:
+        Option = None
+      END
+      REFERENCE PRESSURE:
+        Reference Pressure = 0 [atm]
+      END
+    END
+    FLUID DEFINITION: Air Ideal Gas
+      Material = Air Ideal Gas
+      Option = Material Library
+      MORPHOLOGY:
+        Option = Continuous Fluid
+      END
+    END
+    FLUID MODELS:
+      COMBUSTION MODEL:
+        Option = None
+      END
+      HEAT TRANSFER MODEL:
+        Include Viscous Work Term = On
+        Option = Total Energy
+      END
+      THERMAL RADIATION MODEL:
+        Option = None
+      END
+      TURBULENCE MODEL:
+        Option = k epsilon
+      END
+      TURBULENT WALL FUNCTIONS:
+        High Speed Model = Off
+        Option = Scalable
+      END
+    END
+  END
+  DOMAIN: R1
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Passage Main 3
+    BOUNDARY: R1 Blade
+      Boundary Type = WALL
+      Frame Type = Rotating
+      Location = BLADE 3
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: R1 Hub
+      Boundary Type = WALL
+      Coord Frame = Coord 0
+      Frame Type = Rotating
+      Location = HUB 3
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: R1 Shroud
+      Boundary Type = WALL
+      Frame Type = Rotating
+      Location = SHROUD 3
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+          WALL VELOCITY:
+            Option = Counter Rotating Wall
+          END
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: R1 to IGV Side 1
+      Boundary Type = INTERFACE
+      Location = INFLOW 3
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    BOUNDARY: R1 to R1 Periodic 1 Side 1
+      Boundary Type = INTERFACE
+      Location = PER1 3
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    BOUNDARY: R1 to R1 Periodic 1 Side 2
+      Boundary Type = INTERFACE
+      Location = PER2 3
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    BOUNDARY: S1 to R1 Side 2
+      Boundary Type = INTERFACE
+      Location = OUTFLOW 3
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    DOMAIN MODELS:
+      BUOYANCY MODEL:
+        Option = Non Buoyant
+      END
+      DOMAIN MOTION:
+        Alternate Rotation Model = true
+        Angular Velocity = -16170.4 [rev min^-1]
+        Option = Rotating
+        AXIS DEFINITION:
+          Option = Coordinate Axis
+          Rotation Axis = Coord 0.1
+        END
+      END
+      MESH DEFORMATION:
+        Option = None
+      END
+      REFERENCE PRESSURE:
+        Reference Pressure = 0 [atm]
+      END
+    END
+    FLUID DEFINITION: Air Ideal Gas
+      Material = Air Ideal Gas
+      Option = Material Library
+      MORPHOLOGY:
+        Option = Continuous Fluid
+      END
+    END
+    FLUID MODELS:
+      COMBUSTION MODEL:
+        Option = None
+      END
+      HEAT TRANSFER MODEL:
+        Include Viscous Work Term = On
+        Option = Total Energy
+      END
+      THERMAL RADIATION MODEL:
+        Option = None
+      END
+      TURBULENCE MODEL:
+        Option = k epsilon
+      END
+      TURBULENT WALL FUNCTIONS:
+        High Speed Model = Off
+        Option = Scalable
+      END
+    END
+  END
+  DOMAIN: S1
+    Coord Frame = Coord 0
+    Domain Type = Fluid
+    Location = Passage Main
+    BOUNDARY: S1 Blade
+      Boundary Type = WALL
+      Location = BLADE
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: S1 Hub
+      Boundary Type = WALL
+      Location = HUB
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: S1 Outlet
+      Boundary Type = OUTLET
+      Location = OUTFLOW
+      BOUNDARY CONDITIONS:
+        FLOW REGIME:
+          Option = Subsonic
+        END
+        MASS AND MOMENTUM:
+          Option = Average Static Pressure
+          Pressure Profile Blend = 0.05
+          Relative Pressure = 5.5 [bar]
+        END
+        PRESSURE AVERAGING:
+          Option = Average Over Whole Outlet
+        END
+      END
+    END
+    BOUNDARY: S1 Shroud
+      Boundary Type = WALL
+      Location = SHROUD
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Adiabatic
+        END
+        MASS AND MOMENTUM:
+          Option = No Slip Wall
+        END
+        WALL ROUGHNESS:
+          Option = Smooth Wall
+        END
+      END
+    END
+    BOUNDARY: S1 to R1 Side 1
+      Boundary Type = INTERFACE
+      Location = INFLOW
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    BOUNDARY: S1 to S1 Periodic 1 Side 1
+      Boundary Type = INTERFACE
+      Location = PER1
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    BOUNDARY: S1 to S1 Periodic 1 Side 2
+      Boundary Type = INTERFACE
+      Location = PER2
+      BOUNDARY CONDITIONS:
+        HEAT TRANSFER:
+          Option = Conservative Interface Flux
+        END
+        MASS AND MOMENTUM:
+          Option = Conservative Interface Flux
+        END
+        TURBULENCE:
+          Option = Conservative Interface Flux
+        END
+      END
+    END
+    DOMAIN MODELS:
+      BUOYANCY MODEL:
+        Option = Non Buoyant
+      END
+      DOMAIN MOTION:
+        Option = Stationary
+      END
+      MESH DEFORMATION:
+        Option = None
+      END
+      REFERENCE PRESSURE:
+        Reference Pressure = 0 [atm]
+      END
+    END
+    FLUID DEFINITION: Air Ideal Gas
+      Material = Air Ideal Gas
+      Option = Material Library
+      MORPHOLOGY:
+        Option = Continuous Fluid
+      END
+    END
+    FLUID MODELS:
+      COMBUSTION MODEL:
+        Option = None
+      END
+      HEAT TRANSFER MODEL:
+        Include Viscous Work Term = On
+        Option = Total Energy
+      END
+      THERMAL RADIATION MODEL:
+        Option = None
+      END
+      TURBULENCE MODEL:
+        Option = k epsilon
+      END
+      TURBULENT WALL FUNCTIONS:
+        High Speed Model = Off
+        Option = Scalable
+      END
+    END
+  END
+  DOMAIN INTERFACE: IGV to IGV Periodic 1
+    Boundary List1 = IGV to IGV Periodic 1 Side 1
+    Boundary List2 = IGV to IGV Periodic 1 Side 2
+    Interface Type = Fluid Fluid
+    INTERFACE MODELS:
+      Option = Rotational Periodicity
+      AXIS DEFINITION:
+        Option = Coordinate Axis
+        Rotation Axis = Coord 0.1
+      END
+    END
+    MESH CONNECTION:
+      Option = Automatic
+    END
+  END
+  DOMAIN INTERFACE: R1 to IGV
+    Boundary List1 = R1 to IGV Side 1
+    Boundary List2 = R1 to IGV Side 2
+    Interface Type = Fluid Fluid
+    INTERFACE MODELS:
+      Option = General Connection
+      FRAME CHANGE:
+        Option = Stage
+        DOWNSTREAM VELOCITY CONSTRAINT:
+          Frame Type = Rotating
+          Option = Constant Total Pressure
+        END
+      END
+      PITCH CHANGE:
+        Option = Automatic
+      END
+    END
+    MESH CONNECTION:
+      Option = GGI
+    END
+  END
+  DOMAIN INTERFACE: R1 to R1 Periodic 1
+    Boundary List1 = R1 to R1 Periodic 1 Side 1
+    Boundary List2 = R1 to R1 Periodic 1 Side 2
+    Interface Type = Fluid Fluid
+    INTERFACE MODELS:
+      Option = Rotational Periodicity
+      AXIS DEFINITION:
+        Option = Coordinate Axis
+        Rotation Axis = Coord 0.1
+      END
+    END
+    MESH CONNECTION:
+      Option = Automatic
+    END
+  END
+  DOMAIN INTERFACE: S1 to R1
+    Boundary List1 = S1 to R1 Side 1
+    Boundary List2 = S1 to R1 Side 2
+    Interface Type = Fluid Fluid
+    INTERFACE MODELS:
+      Option = General Connection
+      FRAME CHANGE:
+        Option = Stage
+        DOWNSTREAM VELOCITY CONSTRAINT:
+          Frame Type = Rotating
+          Option = Constant Total Pressure
+        END
+      END
+      PITCH CHANGE:
+        Option = Automatic
+      END
+    END
+    MESH CONNECTION:
+      Option = GGI
+    END
+  END
+  DOMAIN INTERFACE: S1 to S1 Periodic 1
+    Boundary List1 = S1 to S1 Periodic 1 Side 1
+    Boundary List2 = S1 to S1 Periodic 1 Side 2
+    Interface Type = Fluid Fluid
+    INTERFACE MODELS:
+      Option = Rotational Periodicity
+      AXIS DEFINITION:
+        Option = Coordinate Axis
+        Rotation Axis = Coord 0.1
+      END
+    END
+    MESH CONNECTION:
+      Option = Automatic
+    END
+  END
+  OUTPUT CONTROL:
+    MONITOR OBJECTS:
+      EFFICIENCY OUTPUT:
+        Inflow Boundary = IGV Inlet
+        Option = Output To Solver Monitor
+        Outflow Boundary = S1 Outlet
+      END
+      MONITOR BALANCES:
+        Option = Full
+      END
+      MONITOR FORCES:
+        Option = Full
+      END
+      MONITOR PARTICLES:
+        Option = Full
+      END
+      MONITOR POINT: monitorMassflow
+        Coord Frame = Coord 0
+        Expression Value = massflowExp
+        Option = Expression
+      END
+      MONITOR RESIDUALS:
+        Option = Full
+      END
+      MONITOR TOTALS:
+        Option = Full
+      END
+    END
+    RESULTS:
+      File Compression Level = Default
+      Option = Standard
+    END
+  END
+  SOLVER CONTROL:
+    Turbulence Numerics = First Order
+    ADVECTION SCHEME:
+      Option = High Resolution
+    END
+    CONVERGENCE CONTROL:
+      Length Scale Option = Conservative
+      Maximum Number of Iterations = 100000
+      Minimum Number of Iterations = 1
+      Timescale Control = Auto Timescale
+      Timescale Factor = 1.0
+    END
+    CONVERGENCE CRITERIA:
+      Residual Target = 0.000001
+      Residual Type = RMS
+    END
+    DYNAMIC MODEL CONTROL:
+      Global Dynamic Model Control = On
+    END
+    INTERRUPT CONTROL:
+      Option = Any Interrupt
+      CONVERGENCE CONDITIONS:
+        Option = Default Conditions
+      END
+    END
+  END
+END
+COMMAND FILE:
+  Version = 23.1
+  Results Version = 23.1
+END
+SIMULATION CONTROL:
+  EXECUTION CONTROL:
+    EXECUTABLE SELECTION:
+      Double Precision = No
+      Large Problem = No
+    END
+    INTERPOLATOR STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+        Option = Model Based
+      END
+    END
+    PARALLEL HOST LIBRARY:
+      HOST DEFINITION: m0164a04
+        Remote Host Name = M-0164A-04
+        Host Architecture String = winnt-amd64
+        Installation Root = C:\Program Files\ANSYS Inc\v%v\CFX
+      END
+    END
+    PARTITIONER STEP CONTROL:
+      Multidomain Option = Automatic
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+        Option = Model Based
+      END
+      PARTITION SMOOTHING:
+        Maximum Partition Smoothing Sweeps = 100
+        Option = Smooth
+      END
+      PARTITIONING TYPE:
+        MeTiS Type = k-way
+        Option = MeTiS
+        Partition Size Rule = Automatic
+      END
+    END
+    RUN DEFINITION:
+      Run Mode = Full
+      Solver Input File = CFX.def
+      Solver Results File = \
+        C:/Users/alebostr/Desktop/DT3/cfd/cfdrun_pending/dp0_CFX_Solution-1/C\
+        FX_008.res
+    END
+    SOLVER STEP CONTROL:
+      Runtime Priority = Standard
+      MEMORY CONTROL:
+        Memory Allocation Factor = 1.0
+        Option = Model Based
+      END
+      PARALLEL ENVIRONMENT:
+        Number of Processes = 1
+        Start Method = Serial
+      END
+    END
+  END
+END

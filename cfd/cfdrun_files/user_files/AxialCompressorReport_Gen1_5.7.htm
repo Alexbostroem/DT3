@@ -1,0 +1,1193 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Axial Compressor Report</title>
+<style>
+BODY, P, TABLE, DIV.CAPTION {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 95%;
+}
+H1 {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #3b577d;
+}
+H2 {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #3b577d;
+}
+H3 {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #3b577d;
+}
+H4 {
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #3b577d;
+}
+H5 {
+  font-size: 1.1em;
+  font-weight: normal;
+  color: #3b577d;
+}
+H6 {
+  font-size: 1.05em;
+  font-weight: normal;
+  color: #3b577d;
+}
+P {
+  font-weight: normal;
+}
+P.Subject {
+  font-size: 1.2em;
+  font-weight: normal;
+  color: #000099;
+  text-align: center;
+}
+P.Heading {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+P.Title {
+  font-size: 1.0em;
+  text-align: center;
+  margin-top: 0pt;
+}
+P.Bold {
+  font-weight: bold;
+}
+TABLE{
+  border-collapse: collapse;
+  border: solid 1px #A5BAD5;
+}
+TD {
+  border: solid 1px #A5BAD5;
+  padding: 3px 5px 3px 5px;
+  font-weight: normal;
+  vertical-align:top
+}
+DIV.CAPTION {
+  font-weight: normal;
+  text-align: left;
+}
+TABLE.FigureTable { 
+  border-collapse: collapse;
+  border: 0px;
+  margin: 0px 0px 0px 0px;
+  page-break-inside: avoid;
+}
+TD.FigureTitle {
+  border: 0px;
+  padding: 3px 5px 3px 5px;
+  font-weight: normal;
+  text-align: left;
+}
+TD.FigurePicture {
+  border: 0px;
+  padding: 0px 0px 0px 0px;
+  font-weight: normal;
+  text-align: left;
+}
+TD.Figure3D {
+  border: 1px solid black;
+  padding: 0px 0px 0px 0px;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+}
+TD.FigureClose3D {
+  border: 0px;
+  padding: 0px 0px 0px 0px;
+  font-weight: normal;
+  text-align: left;
+  vertical-align: top;
+}
+
+
+TD.TDStyle1 {
+  font-size: 1.0em;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-align: left;
+  color: #000000;
+  background-color: #ffffff
+}
+
+TD.TDStyle2 {
+  font-size: 1.0em;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-align: right;
+  color: #000000;
+  background-color: #ffffff
+}
+
+TD.TDStyle3 {
+  font-size: 1.15em;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  text-align: center;
+  color: #000000;
+  background-color: #ffffff
+}
+
+
+</style>
+
+</head>
+<body>
+<p class='Title'><img src='AnsysReportLogo.png' alt='ANSYS Logo'></p>
+<p class='Heading'>Title</p>
+<p class='Title'>Axial Compressor Report</p>
+<p class='Heading'>Date</p>
+<p class='Title'> 2023/12/12 20:45:05</p>
+<hr>
+<h1>Contents</h1>
+<p><a href="#SECTION1.">1.&nbsp;Introduction</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE1">Figure 1</a>&nbsp;&nbsp;Complete meridional view of the flow passage and blades<br>
+<a href="#SECTION2.">2.&nbsp;Performance Results</a><br>
+&nbsp;&nbsp;<a href="#SECTION2.1.">2.1.&nbsp;Overall Performance Results</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TABLE1">Table 1</a>&nbsp;&nbsp;Overall Performance Results Table<br>
+&nbsp;&nbsp;<a href="#SECTION2.2.">2.2.&nbsp;Stage Performance Results</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TABLE2">Table 2</a>&nbsp;&nbsp;Stage 1 Performance Results<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TABLE3">Table 3</a>&nbsp;&nbsp;Stage 2 Performance Results<br>
+<a href="#SECTION3.">3.&nbsp;Component Summary Data</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TABLE4">Table 4</a>&nbsp;&nbsp;Component 1 Summary Data Table<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TABLE5">Table 5</a>&nbsp;&nbsp;Component 2 Summary Data Table<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#TABLE6">Table 6</a>&nbsp;&nbsp;Component 3 Summary Data Table<br>
+<a href="#SECTION4.">4.&nbsp;Meanline 1-D Charts</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART1">Chart 1</a>&nbsp;&nbsp;Chart showing streamwise, area averaged relative Mach number versus averaged normalized M.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART2">Chart 2</a>&nbsp;&nbsp;Chart showing streamwise, mass averaged static entropy versus averaged normalized M.<br>
+<a href="#SECTION5.">5.&nbsp;Stage Plots</a><br>
+&nbsp;&nbsp;<a href="#SECTION5.1.">5.1.&nbsp;Stage 1 Plots</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE2">Figure 2</a>&nbsp;&nbsp;Stage 1 meridional view of the flow passage and blades<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE3">Figure 3</a>&nbsp;&nbsp;Stage 1 contours of M rel at 50% span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE4">Figure 4</a>&nbsp;&nbsp;Stage 1 velocity vectors at 50% span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE5">Figure 5</a>&nbsp;&nbsp;Stage 1 contours of s at 50% span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE6">Figure 6</a>&nbsp;&nbsp;Stage 1 contours of circumferentially area-averaged P<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE7">Figure 7</a>&nbsp;&nbsp;Stage 1 contours of circumferentially area-averaged M rel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE8">Figure 8</a>&nbsp;&nbsp;Stage 1 contours of circumferentially area-averaged Cm<br>
+&nbsp;&nbsp;<a href="#SECTION5.2.">5.2.&nbsp;Stage 2 Plots</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE9">Figure 9</a>&nbsp;&nbsp;Stage 2 meridional view of the flow passage and blades<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE10">Figure 10</a>&nbsp;&nbsp;Stage 2 contours of M rel at 50% span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE11">Figure 11</a>&nbsp;&nbsp;Stage 2 velocity vectors at 50% span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE12">Figure 12</a>&nbsp;&nbsp;Stage 2 contours of s at 50% span<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE13">Figure 13</a>&nbsp;&nbsp;Stage 2 contours of circumferentially area-averaged P<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE14">Figure 14</a>&nbsp;&nbsp;Stage 2 contours of circumferentially area-averaged M rel<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#FIGURE15">Figure 15</a>&nbsp;&nbsp;Stage 2 contours of circumferentially area-averaged Cm<br>
+<a href="#SECTION6.">6.&nbsp;Component Charts</a><br>
+&nbsp;&nbsp;<a href="#SECTION6.1.">6.1.&nbsp;Blade Loading Charts</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART3">Chart 3</a>&nbsp;&nbsp;Component 1 blade loading chart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART4">Chart 4</a>&nbsp;&nbsp;Component 2 blade loading chart<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART5">Chart 5</a>&nbsp;&nbsp;Component 3 blade loading chart<br>
+&nbsp;&nbsp;<a href="#SECTION6.2.">6.2.&nbsp;Spanwise Charts</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART6">Chart 6</a>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged flow angle at the LE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART7">Chart 7</a>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged relative Mach number at the LE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART8">Chart 8</a>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged flow angle at the TE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART9">Chart 9</a>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged Mach number at the TE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART10">Chart 10</a>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged Cm at the TE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART11">Chart 11</a>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged flow angle at the LE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART12">Chart 12</a>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged relative Mach number at the LE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART13">Chart 13</a>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged flow angle at the TE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART14">Chart 14</a>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged relative and absolute Mach number at the TE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART15">Chart 15</a>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged Cm at the TE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART16">Chart 16</a>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged flow angle at the LE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART17">Chart 17</a>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged relative Mach number at the LE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART18">Chart 18</a>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged flow angle at the TE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART19">Chart 19</a>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged Mach number at the TE<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#CHART20">Chart 20</a>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged Cm at the TE<br>
+<a href="#SECTION7.">7.&nbsp;User Data</a><br>
+</p>
+<hr>
+
+<h1 style='page-break-before:always'><a id=SECTION1.></a>1.&nbsp;Introduction</h1>
+<p>This report summarizes the results of a CFD analysis performed for the axial compressor geometry shown in Figure 1. In the following sections both quantitative and qualitative results are presented in the form of tables, charts and plots.</p>
+<a id=FIGURE1></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 1.</b>&nbsp;&nbsp;Complete meridional view of the flow passage and blades</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure001.png' alt='Figure 1 - Figure001.png'></TD></TR>
+</TABLE>
+
+<h1 style='page-break-before:always'><a id=SECTION2.></a>2.&nbsp;Performance Results</h1>
+<p>The quantitative results are summarized in the following tables. The first table shows the overall performance. The next series of tables shows the performance results for each stage.</p>
+<h2><a id=SECTION2.1.></a>2.1.&nbsp;Overall Performance Results</h2>
+<p>The following table gives the overall performance for the machine.</p>
+<a id=TABLE1></a><DIV CLASS=CAPTION><b>Table 1.</b>&nbsp;&nbsp;Overall Performance Results Table</DIV>
+<TABLE>
+  <TR>
+    <TD CLASS=TDStyle1>Inlet Mass Flow Rate</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle1> [kg s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Inlet Volume Flow Rate</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle1> [m^3 s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Total Pressure Ratio</TD>
+    <TD CLASS=TDStyle2> 1.2410</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Total Temperature Ratio</TD>
+    <TD CLASS=TDStyle2>ERROR in cell expression!</TD>
+    <TD CLASS=TDStyle1>ERROR in cell expression!</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Total-to-Total Isentropic Efficiency %</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Total-to-Total Polytropic Efficiency %</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+</TABLE>
+&nbsp;<br>
+
+<h2><a id=SECTION2.2.></a>2.2.&nbsp;Stage Performance Results</h2>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><p style=" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">The following table(s) give a summary of the performance results for each stage.</p>
+<a id=TABLE2></a><DIV CLASS=CAPTION><b>Table 2.</b>&nbsp;&nbsp;Stage 1 Performance Results</DIV>
+<TABLE>
+  <TR>
+    <TD CLASS=TDStyle1>Mass Flow Rate</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle1> [kg s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Inlet Volume Flow Rate</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle1> [m^3 s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Loss Coefficient, Y1</TD>
+    <TD CLASS=TDStyle2>-0.4771</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Loss Coefficient, Y2</TD>
+    <TD CLASS=TDStyle2>-0.3230</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Loss Coefficient, Y3</TD>
+    <TD CLASS=TDStyle2>-7.8966</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Loss Coefficient, Y4</TD>
+    <TD CLASS=TDStyle2>-0.8882</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Diffuser Cp</TD>
+    <TD CLASS=TDStyle2> 0.0064</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+</TABLE>
+&nbsp;<br>
+
+<a id=TABLE3></a><DIV CLASS=CAPTION><b>Table 3.</b>&nbsp;&nbsp;Stage 2 Performance Results</DIV>
+<TABLE>
+  <TR>
+    <TD CLASS=TDStyle1>Rotation Speed</TD>
+    <TD CLASS=TDStyle2>-1693.3600</TD>
+    <TD CLASS=TDStyle1> [radian s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Inlet Mass Flow Rate</TD>
+    <TD CLASS=TDStyle2>-0.0911</TD>
+    <TD CLASS=TDStyle1> [kg s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Inlet Volume Flow Rate</TD>
+    <TD CLASS=TDStyle2>-0.0467</TD>
+    <TD CLASS=TDStyle1> [m^3 s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Reference Radius</TD>
+    <TD CLASS=TDStyle2> 0.2988</TD>
+    <TD CLASS=TDStyle1> [m]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Input Power</TD>
+    <TD CLASS=TDStyle2>945161.0000</TD>
+    <TD CLASS=TDStyle1> [W]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Inlet Flow Coefficient</TD>
+    <TD CLASS=TDStyle2> 0.1550</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Total Pressure Ratio</TD>
+    <TD CLASS=TDStyle2> 0.8332</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Total Temperature Ratio</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Polytropic Head</TD>
+    <TD CLASS=TDStyle2>-14444900.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Polytropic Head Coefficient</TD>
+    <TD CLASS=TDStyle2>-54.6452</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Total-to-Total Polytropic Efficiency %</TD>
+    <TD CLASS=TDStyle2>139.1660</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Diffuser Loss Coef., Y1</TD>
+    <TD CLASS=TDStyle2> 0.1476</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Diffuser Loss Coef., Y2</TD>
+    <TD CLASS=TDStyle2> 0.1732</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Diffuser Loss Coef., Y3</TD>
+    <TD CLASS=TDStyle2> 0.7737</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Diffuser Loss Coef., Y4</TD>
+    <TD CLASS=TDStyle2> 6.6799</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Diffuser Cp</TD>
+    <TD CLASS=TDStyle2> 0.1105</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+</TABLE>
+&nbsp;<br>
+
+<h1 style='page-break-before:always'><a id=SECTION3.></a>3.&nbsp;Component Summary Data</h1>
+<p>The table(s) below give a summary of the mass or area averaged solution variables and derived quantities computed at the inlet, leading edge (LE Cut), trailing edge (TE Cut) and outlet locations. The flow angles Alpha and Beta are relative to the meridional plane.</p>
+<a id=TABLE4></a><DIV CLASS=CAPTION><b>Table 4.</b>&nbsp;&nbsp;Component 1 Summary Data Table</DIV>
+<TABLE>
+  <TR>
+    <TD CLASS=TDStyle3>Quantity</TD>
+    <TD CLASS=TDStyle3>Inlet</TD>
+    <TD CLASS=TDStyle3>LE Cut</TD>
+    <TD CLASS=TDStyle3>TE Cut</TD>
+    <TD CLASS=TDStyle3>Outlet</TD>
+    <TD CLASS=TDStyle3>TE/LE</TD>
+    <TD CLASS=TDStyle3>TE-LE</TD>
+    <TD CLASS=TDStyle3>Units</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Density</TD>
+    <TD CLASS=TDStyle2> 1.3541</TD>
+    <TD CLASS=TDStyle2> 1.2535</TD>
+    <TD CLASS=TDStyle2> 1.3417</TD>
+    <TD CLASS=TDStyle2> 1.4078</TD>
+    <TD CLASS=TDStyle2> 1.0704</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle1> [kg m^-3]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Pstatic</TD>
+    <TD CLASS=TDStyle2>412798.0000</TD>
+    <TD CLASS=TDStyle2>396624.0000</TD>
+    <TD CLASS=TDStyle2>411237.0000</TD>
+    <TD CLASS=TDStyle2>412968.0000</TD>
+    <TD CLASS=TDStyle2> 1.0368</TD>
+    <TD CLASS=TDStyle2>14613.0000</TD>
+    <TD CLASS=TDStyle1> [Pa]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Ptotal</TD>
+    <TD CLASS=TDStyle2>439341.0000</TD>
+    <TD CLASS=TDStyle2>410057.0000</TD>
+    <TD CLASS=TDStyle2>524632.0000</TD>
+    <TD CLASS=TDStyle2>648937.0000</TD>
+    <TD CLASS=TDStyle2> 1.2794</TD>
+    <TD CLASS=TDStyle2>114575.0000</TD>
+    <TD CLASS=TDStyle1> [Pa]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Tstatic</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2>2258.0700</TD>
+    <TD CLASS=TDStyle2>-586.0810</TD>
+    <TD CLASS=TDStyle2>-2776.5700</TD>
+    <TD CLASS=TDStyle2>-0.2596</TD>
+    <TD CLASS=TDStyle2>-2844.1500</TD>
+    <TD CLASS=TDStyle1> [K]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Ttotal</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2>12509.5000</TD>
+    <TD CLASS=TDStyle2>9738.6000</TD>
+    <TD CLASS=TDStyle2>10438.5000</TD>
+    <TD CLASS=TDStyle2> 0.7785</TD>
+    <TD CLASS=TDStyle2>-2770.9100</TD>
+    <TD CLASS=TDStyle1> [K]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Hstatic</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2>1968540.0000</TD>
+    <TD CLASS=TDStyle2>-888122.0000</TD>
+    <TD CLASS=TDStyle2>-3088250.0000</TD>
+    <TD CLASS=TDStyle2>-0.4512</TD>
+    <TD CLASS=TDStyle2>-2856660.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Htotal</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2>12265100.0000</TD>
+    <TD CLASS=TDStyle2>9481990.0000</TD>
+    <TD CLASS=TDStyle2>10184900.0000</TD>
+    <TD CLASS=TDStyle2> 0.7731</TD>
+    <TD CLASS=TDStyle2>-2783100.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Entropy</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2>1850.7000</TD>
+    <TD CLASS=TDStyle2>22.2712</TD>
+    <TD CLASS=TDStyle2>-2428.8400</TD>
+    <TD CLASS=TDStyle2> 0.0120</TD>
+    <TD CLASS=TDStyle2>-1828.4200</TD>
+    <TD CLASS=TDStyle1> [J kg^-1 K^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Mach</TD>
+    <TD CLASS=TDStyle2> 0.2765</TD>
+    <TD CLASS=TDStyle2> 0.1748</TD>
+    <TD CLASS=TDStyle2> 0.4592</TD>
+    <TD CLASS=TDStyle2> 0.6829</TD>
+    <TD CLASS=TDStyle2> 2.6267</TD>
+    <TD CLASS=TDStyle2> 0.2844</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Cm</TD>
+    <TD CLASS=TDStyle2>96.3294</TD>
+    <TD CLASS=TDStyle2>95.2128</TD>
+    <TD CLASS=TDStyle2>76.2935</TD>
+    <TD CLASS=TDStyle2>75.4553</TD>
+    <TD CLASS=TDStyle2> 0.8013</TD>
+    <TD CLASS=TDStyle2>-18.9193</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Cu</TD>
+    <TD CLASS=TDStyle2>148.4930</TD>
+    <TD CLASS=TDStyle2>13.3378</TD>
+    <TD CLASS=TDStyle2>260.2800</TD>
+    <TD CLASS=TDStyle2>399.9150</TD>
+    <TD CLASS=TDStyle2>19.5145</TD>
+    <TD CLASS=TDStyle2>246.9430</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>C</TD>
+    <TD CLASS=TDStyle2>185.3600</TD>
+    <TD CLASS=TDStyle2>116.6870</TD>
+    <TD CLASS=TDStyle2>299.3320</TD>
+    <TD CLASS=TDStyle2>434.5720</TD>
+    <TD CLASS=TDStyle2> 2.5652</TD>
+    <TD CLASS=TDStyle2>182.6440</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Distortion Parameter</TD>
+    <TD CLASS=TDStyle2> 1.5446</TD>
+    <TD CLASS=TDStyle2> 3.4691</TD>
+    <TD CLASS=TDStyle2> 2.7097</TD>
+    <TD CLASS=TDStyle2> 1.9349</TD>
+    <TD CLASS=TDStyle2> 0.7811</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Flow Angle</TD>
+    <TD CLASS=TDStyle2>-210.5140</TD>
+    <TD CLASS=TDStyle2>-87.5098</TD>
+    <TD CLASS=TDStyle2>-135.1710</TD>
+    <TD CLASS=TDStyle2>-105.6350</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle2>-47.6613</TD>
+    <TD CLASS=TDStyle1> [degree]</TD>
+  </TR>
+</TABLE>
+&nbsp;<br>
+
+<a id=TABLE5></a><DIV CLASS=CAPTION><b>Table 5.</b>&nbsp;&nbsp;Component 2 Summary Data Table</DIV>
+<TABLE>
+  <TR>
+    <TD CLASS=TDStyle3>Quantity</TD>
+    <TD CLASS=TDStyle3>Inlet</TD>
+    <TD CLASS=TDStyle3>LE Cut</TD>
+    <TD CLASS=TDStyle3>TE Cut</TD>
+    <TD CLASS=TDStyle3>Outlet</TD>
+    <TD CLASS=TDStyle3>TE/LE</TD>
+    <TD CLASS=TDStyle3>TE-LE</TD>
+    <TD CLASS=TDStyle3>Units</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Density</TD>
+    <TD CLASS=TDStyle2> 1.4135</TD>
+    <TD CLASS=TDStyle2> 1.4269</TD>
+    <TD CLASS=TDStyle2> 1.7569</TD>
+    <TD CLASS=TDStyle2> 1.8361</TD>
+    <TD CLASS=TDStyle2> 1.2313</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle1> [kg m^-3]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Pstatic</TD>
+    <TD CLASS=TDStyle2>413515.0000</TD>
+    <TD CLASS=TDStyle2>413179.0000</TD>
+    <TD CLASS=TDStyle2>517605.0000</TD>
+    <TD CLASS=TDStyle2>523263.0000</TD>
+    <TD CLASS=TDStyle2> 1.2527</TD>
+    <TD CLASS=TDStyle2>104426.0000</TD>
+    <TD CLASS=TDStyle1> [Pa]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Pt</TD>
+    <TD CLASS=TDStyle2>654379.0000</TD>
+    <TD CLASS=TDStyle2>702611.0000</TD>
+    <TD CLASS=TDStyle2>639658.0000</TD>
+    <TD CLASS=TDStyle2>588849.0000</TD>
+    <TD CLASS=TDStyle2> 0.9104</TD>
+    <TD CLASS=TDStyle2>-62953.0000</TD>
+    <TD CLASS=TDStyle1> [Pa]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Pt (rot)</TD>
+    <TD CLASS=TDStyle2>310927.0000</TD>
+    <TD CLASS=TDStyle2>307345.0000</TD>
+    <TD CLASS=TDStyle2>354726.0000</TD>
+    <TD CLASS=TDStyle2>378270.0000</TD>
+    <TD CLASS=TDStyle2> 1.1542</TD>
+    <TD CLASS=TDStyle2>47380.8000</TD>
+    <TD CLASS=TDStyle1> [Pa]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>T</TD>
+    <TD CLASS=TDStyle2>-1205.0500</TD>
+    <TD CLASS=TDStyle2>-1552.8700</TD>
+    <TD CLASS=TDStyle2>-2570.8300</TD>
+    <TD CLASS=TDStyle2>-1849.2500</TD>
+    <TD CLASS=TDStyle2> 1.6555</TD>
+    <TD CLASS=TDStyle2>-1017.9600</TD>
+    <TD CLASS=TDStyle1> [K]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Tt</TD>
+    <TD CLASS=TDStyle2>10632.3000</TD>
+    <TD CLASS=TDStyle2>11063.5000</TD>
+    <TD CLASS=TDStyle2>-3626.0900</TD>
+    <TD CLASS=TDStyle2>-2927.3900</TD>
+    <TD CLASS=TDStyle2>-0.3278</TD>
+    <TD CLASS=TDStyle2>-14689.6000</TD>
+    <TD CLASS=TDStyle1> [K]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Tt (rot)</TD>
+    <TD CLASS=TDStyle2>-7818.5100</TD>
+    <TD CLASS=TDStyle2>-7354.5800</TD>
+    <TD CLASS=TDStyle2>-1738.5200</TD>
+    <TD CLASS=TDStyle2>-814.6460</TD>
+    <TD CLASS=TDStyle2> 0.2364</TD>
+    <TD CLASS=TDStyle2>5616.0600</TD>
+    <TD CLASS=TDStyle1> [K]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>H</TD>
+    <TD CLASS=TDStyle2>-1509810.0000</TD>
+    <TD CLASS=TDStyle2>-1859170.0000</TD>
+    <TD CLASS=TDStyle2>-2881610.0000</TD>
+    <TD CLASS=TDStyle2>-2156850.0000</TD>
+    <TD CLASS=TDStyle2> 1.5499</TD>
+    <TD CLASS=TDStyle2>-1022440.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Ht</TD>
+    <TD CLASS=TDStyle2>10379600.0000</TD>
+    <TD CLASS=TDStyle2>10812700.0000</TD>
+    <TD CLASS=TDStyle2>-3941510.0000</TD>
+    <TD CLASS=TDStyle2>-3239730.0000</TD>
+    <TD CLASS=TDStyle2>-0.3645</TD>
+    <TD CLASS=TDStyle2>-14754200.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Ht adiabatic</TD>
+    <TD CLASS=TDStyle2>14324900.0000</TD>
+    <TD CLASS=TDStyle2>15347300.0000</TD>
+    <TD CLASS=TDStyle2>-1788830.0000</TD>
+    <TD CLASS=TDStyle2>-1044260.0000</TD>
+    <TD CLASS=TDStyle2>-0.1166</TD>
+    <TD CLASS=TDStyle2>-17136100.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Ht polytropic</TD>
+    <TD CLASS=TDStyle2>14444900.0000</TD>
+    <TD CLASS=TDStyle2>15389100.0000</TD>
+    <TD CLASS=TDStyle2>-1779690.0000</TD>
+    <TD CLASS=TDStyle2>-1046400.0000</TD>
+    <TD CLASS=TDStyle2>-0.1156</TD>
+    <TD CLASS=TDStyle2>-17168800.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Rothalpy</TD>
+    <TD CLASS=TDStyle2>-8152380.0000</TD>
+    <TD CLASS=TDStyle2>-7686410.0000</TD>
+    <TD CLASS=TDStyle2>-2045640.0000</TD>
+    <TD CLASS=TDStyle2>-1117690.0000</TD>
+    <TD CLASS=TDStyle2> 0.2661</TD>
+    <TD CLASS=TDStyle2>5640770.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Entropy</TD>
+    <TD CLASS=TDStyle2>-3125.6300</TD>
+    <TD CLASS=TDStyle2>-3569.2400</TD>
+    <TD CLASS=TDStyle2>-1308.5500</TD>
+    <TD CLASS=TDStyle2>-1396.1600</TD>
+    <TD CLASS=TDStyle2> 0.3666</TD>
+    <TD CLASS=TDStyle2>2260.6900</TD>
+    <TD CLASS=TDStyle1> [J kg^-1 K^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Mach (abs)</TD>
+    <TD CLASS=TDStyle2> 0.6772</TD>
+    <TD CLASS=TDStyle2> 0.7482</TD>
+    <TD CLASS=TDStyle2> 0.5307</TD>
+    <TD CLASS=TDStyle2> 0.3929</TD>
+    <TD CLASS=TDStyle2> 0.7093</TD>
+    <TD CLASS=TDStyle2>-0.2175</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Mach (rel)</TD>
+    <TD CLASS=TDStyle2> 0.3817</TD>
+    <TD CLASS=TDStyle2> 0.3873</TD>
+    <TD CLASS=TDStyle2> 0.3374</TD>
+    <TD CLASS=TDStyle2> 0.4533</TD>
+    <TD CLASS=TDStyle2> 0.8712</TD>
+    <TD CLASS=TDStyle2>-0.0499</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>U</TD>
+    <TD CLASS=TDStyle2>496.1910</TD>
+    <TD CLASS=TDStyle2>497.7930</TD>
+    <TD CLASS=TDStyle2>514.1400</TD>
+    <TD CLASS=TDStyle2>515.2660</TD>
+    <TD CLASS=TDStyle2> 1.0328</TD>
+    <TD CLASS=TDStyle2>16.3473</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Cm</TD>
+    <TD CLASS=TDStyle2>69.2448</TD>
+    <TD CLASS=TDStyle2>78.4487</TD>
+    <TD CLASS=TDStyle2>85.9499</TD>
+    <TD CLASS=TDStyle2>62.7397</TD>
+    <TD CLASS=TDStyle2> 1.0956</TD>
+    <TD CLASS=TDStyle2> 7.5011</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Cu</TD>
+    <TD CLASS=TDStyle2>396.7030</TD>
+    <TD CLASS=TDStyle2>438.3680</TD>
+    <TD CLASS=TDStyle2>325.9270</TD>
+    <TD CLASS=TDStyle2>241.2110</TD>
+    <TD CLASS=TDStyle2> 0.7435</TD>
+    <TD CLASS=TDStyle2>-112.4410</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>C</TD>
+    <TD CLASS=TDStyle2>431.0770</TD>
+    <TD CLASS=TDStyle2>473.5140</TD>
+    <TD CLASS=TDStyle2>342.4650</TD>
+    <TD CLASS=TDStyle2>250.9300</TD>
+    <TD CLASS=TDStyle2> 0.7232</TD>
+    <TD CLASS=TDStyle2>-131.0490</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Wu</TD>
+    <TD CLASS=TDStyle2>-99.4879</TD>
+    <TD CLASS=TDStyle2>-59.4250</TD>
+    <TD CLASS=TDStyle2>-188.2130</TD>
+    <TD CLASS=TDStyle2>-274.0550</TD>
+    <TD CLASS=TDStyle2> 3.1672</TD>
+    <TD CLASS=TDStyle2>-128.7880</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>W</TD>
+    <TD CLASS=TDStyle2>245.9440</TD>
+    <TD CLASS=TDStyle2>247.9750</TD>
+    <TD CLASS=TDStyle2>213.6970</TD>
+    <TD CLASS=TDStyle2>283.7960</TD>
+    <TD CLASS=TDStyle2> 0.8618</TD>
+    <TD CLASS=TDStyle2>-34.2778</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Distortion Parameter</TD>
+    <TD CLASS=TDStyle2> 1.9767</TD>
+    <TD CLASS=TDStyle2> 1.8055</TD>
+    <TD CLASS=TDStyle2> 1.1908</TD>
+    <TD CLASS=TDStyle2> 1.3101</TD>
+    <TD CLASS=TDStyle2> 0.6596</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Flow Angle: Alpha</TD>
+    <TD CLASS=TDStyle2>-178.9750</TD>
+    <TD CLASS=TDStyle2>-150.2210</TD>
+    <TD CLASS=TDStyle2>-77.8791</TD>
+    <TD CLASS=TDStyle2>-90.0212</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle2>72.3419</TD>
+    <TD CLASS=TDStyle1> [degree]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Flow Angle: Beta</TD>
+    <TD CLASS=TDStyle2>-166.6350</TD>
+    <TD CLASS=TDStyle2>-166.5410</TD>
+    <TD CLASS=TDStyle2>-81.2346</TD>
+    <TD CLASS=TDStyle2>-85.6075</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle2>85.3066</TD>
+    <TD CLASS=TDStyle1> [degree]</TD>
+  </TR>
+</TABLE>
+&nbsp;<br>
+
+<a id=TABLE6></a><DIV CLASS=CAPTION><b>Table 6.</b>&nbsp;&nbsp;Component 3 Summary Data Table</DIV>
+<TABLE>
+  <TR>
+    <TD CLASS=TDStyle3>Quantity</TD>
+    <TD CLASS=TDStyle3>Inlet</TD>
+    <TD CLASS=TDStyle3>LE Cut</TD>
+    <TD CLASS=TDStyle3>TE Cut</TD>
+    <TD CLASS=TDStyle3>Outlet</TD>
+    <TD CLASS=TDStyle3>TE/LE</TD>
+    <TD CLASS=TDStyle3>TE-LE</TD>
+    <TD CLASS=TDStyle3>Units</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Density</TD>
+    <TD CLASS=TDStyle2> 1.8406</TD>
+    <TD CLASS=TDStyle2> 1.9794</TD>
+    <TD CLASS=TDStyle2> 2.1638</TD>
+    <TD CLASS=TDStyle2> 2.1980</TD>
+    <TD CLASS=TDStyle2> 1.0932</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle1> [kg m^-3]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Pstatic</TD>
+    <TD CLASS=TDStyle2>523017.0000</TD>
+    <TD CLASS=TDStyle2>523503.0000</TD>
+    <TD CLASS=TDStyle2>519321.0000</TD>
+    <TD CLASS=TDStyle2>531092.0000</TD>
+    <TD CLASS=TDStyle2> 0.9920</TD>
+    <TD CLASS=TDStyle2>-4182.3100</TD>
+    <TD CLASS=TDStyle1> [Pa]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Ptotal</TD>
+    <TD CLASS=TDStyle2>586089.0000</TD>
+    <TD CLASS=TDStyle2>555444.0000</TD>
+    <TD CLASS=TDStyle2>530294.0000</TD>
+    <TD CLASS=TDStyle2>545228.0000</TD>
+    <TD CLASS=TDStyle2> 0.9547</TD>
+    <TD CLASS=TDStyle2>-25149.9000</TD>
+    <TD CLASS=TDStyle1> [Pa]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Tstatic</TD>
+    <TD CLASS=TDStyle2>-1787.6400</TD>
+    <TD CLASS=TDStyle2>-2036.6900</TD>
+    <TD CLASS=TDStyle2>-4926.9900</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2> 2.4191</TD>
+    <TD CLASS=TDStyle2>-2890.3000</TD>
+    <TD CLASS=TDStyle1> [K]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Ttotal</TD>
+    <TD CLASS=TDStyle2>-2648.5200</TD>
+    <TD CLASS=TDStyle2>-2751.8800</TD>
+    <TD CLASS=TDStyle2>-5841.2100</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2> 2.1226</TD>
+    <TD CLASS=TDStyle2>-3089.3300</TD>
+    <TD CLASS=TDStyle1> [K]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Hstatic</TD>
+    <TD CLASS=TDStyle2>-2094960.0000</TD>
+    <TD CLASS=TDStyle2>-2345110.0000</TD>
+    <TD CLASS=TDStyle2>-5248130.0000</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2> 2.2379</TD>
+    <TD CLASS=TDStyle2>-2903020.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Htotal</TD>
+    <TD CLASS=TDStyle2>-2996060.0000</TD>
+    <TD CLASS=TDStyle2>-3063450.0000</TD>
+    <TD CLASS=TDStyle2>-6166370.0000</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2> 2.0129</TD>
+    <TD CLASS=TDStyle2>-3102920.0000</TD>
+    <TD CLASS=TDStyle1> [J kg^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Entropy</TD>
+    <TD CLASS=TDStyle2>-2036.5300</TD>
+    <TD CLASS=TDStyle2>-2604.0300</TD>
+    <TD CLASS=TDStyle2>-6127.6900</TD>
+    <TD CLASS=TDStyle2> 0.0000</TD>
+    <TD CLASS=TDStyle2> 2.3532</TD>
+    <TD CLASS=TDStyle2>-3523.6600</TD>
+    <TD CLASS=TDStyle1> [J kg^-1 K^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Mach</TD>
+    <TD CLASS=TDStyle2> 0.3892</TD>
+    <TD CLASS=TDStyle2> 0.2591</TD>
+    <TD CLASS=TDStyle2> 0.1610</TD>
+    <TD CLASS=TDStyle2> 0.1837</TD>
+    <TD CLASS=TDStyle2> 0.6216</TD>
+    <TD CLASS=TDStyle2>-0.0980</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Cm</TD>
+    <TD CLASS=TDStyle2>61.4388</TD>
+    <TD CLASS=TDStyle2>46.1583</TD>
+    <TD CLASS=TDStyle2>64.6610</TD>
+    <TD CLASS=TDStyle2>18.5064</TD>
+    <TD CLASS=TDStyle2> 1.4008</TD>
+    <TD CLASS=TDStyle2>18.5027</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Cu</TD>
+    <TD CLASS=TDStyle2>239.6430</TD>
+    <TD CLASS=TDStyle2>150.3600</TD>
+    <TD CLASS=TDStyle2>-55.4499</TD>
+    <TD CLASS=TDStyle2>-103.9660</TD>
+    <TD CLASS=TDStyle2>-0.3688</TD>
+    <TD CLASS=TDStyle2>-205.8100</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>C</TD>
+    <TD CLASS=TDStyle2>248.2430</TD>
+    <TD CLASS=TDStyle2>160.9200</TD>
+    <TD CLASS=TDStyle2>93.7639</TD>
+    <TD CLASS=TDStyle2>106.9390</TD>
+    <TD CLASS=TDStyle2> 0.5827</TD>
+    <TD CLASS=TDStyle2>-67.1560</TD>
+    <TD CLASS=TDStyle1> [m s^-1]</TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Distortion Parameter</TD>
+    <TD CLASS=TDStyle2> 1.2749</TD>
+    <TD CLASS=TDStyle2> 1.8904</TD>
+    <TD CLASS=TDStyle2> 1.5403</TD>
+    <TD CLASS=TDStyle2> 1.3559</TD>
+    <TD CLASS=TDStyle2> 0.8148</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle1></TD>
+  </TR>
+  <TR>
+    <TD CLASS=TDStyle1>Flow Angle</TD>
+    <TD CLASS=TDStyle2>-74.5081</TD>
+    <TD CLASS=TDStyle2>-86.4879</TD>
+    <TD CLASS=TDStyle2>-98.2282</TD>
+    <TD CLASS=TDStyle2>-90.6437</TD>
+    <TD CLASS=TDStyle2>N/A</TD>
+    <TD CLASS=TDStyle2>-11.7403</TD>
+    <TD CLASS=TDStyle1> [degree]</TD>
+  </TR>
+</TABLE>
+&nbsp;<br>
+
+<h1 style='page-break-before:always'><a id=SECTION4.></a>4.&nbsp;Meanline 1-D Charts</h1>
+<p>The following charts show streamwise mass or area averaged quantities from the inlet to the outlet of the full machine.</p>
+<a id=CHART1></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 1.</b>&nbsp;&nbsp;Chart showing streamwise, area averaged relative Mach number versus averaged normalized M.</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart001.png' alt='Chart 1. Chart001.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART2></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 2.</b>&nbsp;&nbsp;Chart showing streamwise, mass averaged static entropy versus averaged normalized M.</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart002.png' alt='Chart 2. Chart002.png'></TD>
+</TR>
+</TABLE>
+
+<h1 style='page-break-before:always'><a id=SECTION5.></a>5.&nbsp;Stage Plots</h1>
+<p>The following plots show, for each stage, a meridional view of the geometry, blade-to-blade contour and vector views, and circumferentially averaged meridional views.</p>
+<h2><a id=SECTION5.1.></a>5.1.&nbsp;Stage 1 Plots</h2>
+
+<a id=FIGURE2></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 2.</b>&nbsp;&nbsp;Stage 1 meridional view of the flow passage and blades</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure002.png' alt='Figure 2 - Figure002.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE3></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 3.</b>&nbsp;&nbsp;Stage 1 contours of M rel at 50% span</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure003.png' alt='Figure 3 - Figure003.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE4></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 4.</b>&nbsp;&nbsp;Stage 1 velocity vectors at 50% span</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure004.png' alt='Figure 4 - Figure004.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE5></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 5.</b>&nbsp;&nbsp;Stage 1 contours of s at 50% span</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure005.png' alt='Figure 5 - Figure005.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE6></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 6.</b>&nbsp;&nbsp;Stage 1 contours of circumferentially area-averaged P</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure006.png' alt='Figure 6 - Figure006.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE7></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 7.</b>&nbsp;&nbsp;Stage 1 contours of circumferentially area-averaged M rel</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure007.png' alt='Figure 7 - Figure007.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE8></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 8.</b>&nbsp;&nbsp;Stage 1 contours of circumferentially area-averaged Cm</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure008.png' alt='Figure 8 - Figure008.png'></TD></TR>
+</TABLE>
+
+<h2><a id=SECTION5.2.></a>5.2.&nbsp;Stage 2 Plots</h2>
+
+<a id=FIGURE9></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 9.</b>&nbsp;&nbsp;Stage 2 meridional view of the flow passage and blades</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure009.png' alt='Figure 9 - Figure009.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE10></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 10.</b>&nbsp;&nbsp;Stage 2 contours of M rel at 50% span</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure010.png' alt='Figure 10 - Figure010.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE11></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 11.</b>&nbsp;&nbsp;Stage 2 velocity vectors at 50% span</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure011.png' alt='Figure 11 - Figure011.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE12></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 12.</b>&nbsp;&nbsp;Stage 2 contours of s at 50% span</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure012.png' alt='Figure 12 - Figure012.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE13></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 13.</b>&nbsp;&nbsp;Stage 2 contours of circumferentially area-averaged P</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure013.png' alt='Figure 13 - Figure013.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE14></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 14.</b>&nbsp;&nbsp;Stage 2 contours of circumferentially area-averaged M rel</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure014.png' alt='Figure 14 - Figure014.png'></TD></TR>
+</TABLE>
+
+<a id=FIGURE15></a>
+<TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Figure 15.</b>&nbsp;&nbsp;Stage 2 contours of circumferentially area-averaged Cm</TD></TR>
+<TR><TD class='FigurePicture'><img src='Figure015.png' alt='Figure 15 - Figure015.png'></TD></TR>
+</TABLE>
+
+<h1 style='page-break-before:always'><a id=SECTION6.></a>6.&nbsp;Component Charts</h1>
+<p>The following charts show blade loading and spanwise-averaged quantities for each component.</p>
+<h2><a id=SECTION6.1.></a>6.1.&nbsp;Blade Loading Charts</h2>
+<p>The following charts show the blade loading for each component.</p>
+<a id=CHART3></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 3.</b>&nbsp;&nbsp;Component 1 blade loading chart</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart003.png' alt='Chart 3. Chart003.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART4></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 4.</b>&nbsp;&nbsp;Component 2 blade loading chart</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart004.png' alt='Chart 4. Chart004.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART5></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 5.</b>&nbsp;&nbsp;Component 3 blade loading chart</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart005.png' alt='Chart 5. Chart005.png'></TD>
+</TR>
+</TABLE>
+
+<h2><a id=SECTION6.2.></a>6.2.&nbsp;Spanwise Charts</h2>
+<p>The following charts show circumferentially averaged quantities along hub-to-shroud lines located at the leading and trailing edges of the blade.</p>
+<a id=CHART6></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 6.</b>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged flow angle at the LE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart006.png' alt='Chart 6. Chart006.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART7></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 7.</b>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged relative Mach number at the LE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart007.png' alt='Chart 7. Chart007.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART8></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 8.</b>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged flow angle at the TE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart008.png' alt='Chart 8. Chart008.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART9></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 9.</b>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged Mach number at the TE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart009.png' alt='Chart 9. Chart009.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART10></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 10.</b>&nbsp;&nbsp;Component 1 chart showing circumferentially averaged Cm at the TE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart010.png' alt='Chart 10. Chart010.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART11></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 11.</b>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged flow angle at the LE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart011.png' alt='Chart 11. Chart011.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART12></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 12.</b>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged relative Mach number at the LE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart012.png' alt='Chart 12. Chart012.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART13></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 13.</b>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged flow angle at the TE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart013.png' alt='Chart 13. Chart013.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART14></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 14.</b>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged relative and absolute Mach number at the TE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart014.png' alt='Chart 14. Chart014.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART15></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 15.</b>&nbsp;&nbsp;Component 2 chart showing circumferentially averaged Cm at the TE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart015.png' alt='Chart 15. Chart015.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART16></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 16.</b>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged flow angle at the LE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart016.png' alt='Chart 16. Chart016.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART17></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 17.</b>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged relative Mach number at the LE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart017.png' alt='Chart 17. Chart017.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART18></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 18.</b>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged flow angle at the TE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart018.png' alt='Chart 18. Chart018.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART19></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 19.</b>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged Mach number at the TE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart019.png' alt='Chart 19. Chart019.png'></TD>
+</TR>
+</TABLE>
+
+<a id=CHART20></a><TABLE class='FigureTable'>
+<TR><TD class='FigureTitle'><b>Chart 20.</b>&nbsp;&nbsp;Component 3 chart showing circumferentially averaged Cm at the TE</TD></TR>
+<TR>
+<TD class='FigurePicture'><img src='Chart020.png' alt='Chart 20. Chart020.png'></TD>
+</TR>
+</TABLE>
+
+<h1 style='page-break-before:always'><a id=SECTION7.></a>7.&nbsp;User Data</h1>
+
+
+</body>
+</html>

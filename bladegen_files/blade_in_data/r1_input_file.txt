@@ -1,5 +1,5 @@
 Component: r1
-n_blades: 42
+n_blades: 40
 Parameter file: r1_parameters.csv
 Stack file: r1_stack.csv
 Curve file: cdata_r_in.csv

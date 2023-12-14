@@ -535,7 +535,7 @@ P_08 = P_07/(T_07/T_08)^(gamma_gas/((gamma_gas-1)*LPT_poly_eff));
    
 
    %Calculating the area at the end of the stage
-   mach_numbers = linspace(M_ax_HPC_in, M_ax_HPC_out, N_HPC);
+   mach_numbers = linspace(M_ax_HPC_in, M_ax_HPC_out, N_HPC*2);
    M_ax_2 = mach_numbers(2);
    Area_stator_out = calculateFanArea(M_ax_2,gamma_air,T02,P02,m_h);
 
@@ -544,7 +544,7 @@ P_08 = P_07/(T_07/T_08)^(gamma_gas/((gamma_gas-1)*LPT_poly_eff));
    cout = vout*M_ax_2;
 
    %Calculating the height at the end of the stage
-   mid_radi = linspace(R_mid_HPC_1, R_mid_HPC_2, N_HPC);
+   mid_radi = linspace(R_mid_HPC_1, R_mid_HPC_2, N_HPC*2);
    mid_radi_end = mid_radi(2);
    h2 = Area_stator_out/(mid_radi_end*2*pi); 
         rstat_tte =  mid_radi_end  + (h2/2);
@@ -553,14 +553,14 @@ P_08 = P_07/(T_07/T_08)^(gamma_gas/((gamma_gas-1)*LPT_poly_eff));
 
    %Station 12
     h_hat = sqrt(h1*h2);
-    AR = linspace(AR_HPC_entry, AR_HPC_exit, (N_HPC*2)); 
+    AR = linspace(AR_HPC_entry, AR_HPC_exit, N_HPC*2); 
 
     AR_rotor = AR(1); 
     AR_stator = AR(2);
         
     l_rotor = h_hat/AR_rotor;
     l_stator = h_hat/AR_stator;
-    l_space_rtst = l_rotor * 1.3;
+    l_space_rtst = l_rotor * 0.3;
     l_igv = 0.8 * l_rotor;
     l_igv_space = 0.3*l_igv;
 
@@ -586,9 +586,9 @@ P_08 = P_07/(T_07/T_08)^(gamma_gas/((gamma_gas-1)*LPT_poly_eff));
  x_rot_le = x_igv_te + l_igv_space;
  x_rot_te = x_rot_le + l_rotor;
  x_stat_le = x_rot_te + l_space_rtst;
- x_stat_te = x_stat_le + x_stat_le;
+ x_stat_te = x_stat_le + l_stator;
      
-saveCompressorForSmooth((Omega_HPC_rotor/(2*pi)), m_h, tin, Pin, P02, x_igv_le, x_igv_te, x_rot_le,x_rot_te, x_stat_le, x_stat_te, r_igv_tle, r_igv_tte, rrot_tle, rrot_tte, rstat_tle,rstat_tte, r_igv_hle, r_igv_hte, rrot_hle, rrot_hte, rstat_hle, rstat_hte);
+%saveCompressorForSmooth((Omega_HPC_rotor/(2*pi)), m_h, tin, Pin, P02, x_igv_le, x_igv_te, x_rot_le,x_rot_te, x_stat_le, x_stat_te, r_igv_tle, r_igv_tte, rrot_tle, rrot_tte, rstat_tle,rstat_tte, r_igv_hle, r_igv_hte, rrot_hle, rrot_hte, rstat_hle, rstat_hte);
 
 
 

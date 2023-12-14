@@ -1,29 +1,29 @@
-prat: 1.6579 
-NH: 16170.3764 
-mdot: 52.3840 
-T0: 517.3627 
-P0: 386451.0110 
-reDistFact: 1.0000 
-n_stages: 1 
-n_span: 11 
-fl_igv: 1 
-n_bezier: 4 
-n_duct_inlet: 2 
-n_duct_outlet: 3 
-n_blade_intermediate_stations: 0 
-hubStretch:   1.0000  1.0000  1.0000 
-tipStretch:   1.0000  1.0000  1.0000 
-stretch:   1.0000  1.0000  1.0000 
-spacing:   1.0000  1.0000  1.0000 
-hubSpacing:   1.0000  1.0000  1.0000 
-tipSpacing:   1.0000  1.0000  1.0000 
-blades:  70 100 150 
-xbezHub:  -0.0119  0.0309  0.0994  0.2485 
-rbezHub:   0.2674  0.2660  0.2646  0.2611 
-xbezShroud:  -0.0119  0.0309  0.0994  0.2485 
-rbezShroud:   0.3251  0.3236  0.3185  0.3057 
-alpha_TE_S1:   0.0000  0.0000  0.0000 
-alpha_TE_IGV:   0.0000  0.0000  0.0000 
-workFact_R1:  1.0000 1.0000 1.0000  
-xHub:   0.0000  0.0238  0.0309  0.0607  0.0994  0.1988 
-xTip:   0.0000  0.0238  0.0309  0.0607  0.0994  0.1988 
+prat: 1.6579
+NH: 16170.3764
+mdot: 52.3840
+T0: 517.3627
+P0: 386451.0110
+reDistFact: 1.0000
+n_stages: 1
+n_span: 11
+fl_igv: 1
+n_bezier: 4
+n_duct_inlet: 2
+n_duct_outlet: 3
+n_blade_intermediate_stations: 0
+hubStretch: 1.0000 1.1100 1.0000
+tipStretch: 1.0000 1.1100 1.0000
+stretch: 1.0000 1.1100 1.0000
+spacing: 1.0000 1.0000 1.0000
+hubSpacing: 1.0000 1.0000 1.0000
+tipSpacing: 1.0000 1.0000 1.0000
+blades: 70 40 50
+xbezHub: -0.0113 0.0294 0.0662 0.1112
+rbezHub: 0.22 0.271 0.291 0.292
+xbezShroud: -0.0113 0.0294 0.0662 0.1112
+rbezShroud: 0.3251 0.3251 0.3251 0.3251
+alpha_TE_S1: 0 0 0
+alpha_TE_IGV: 0 0 0
+workFact_R1: 1.0000 1.0000 1.0000
+xHub: 0.0000 0.0226 0.0294 0.0577 0.0662 0.0962
+xTip: 0.0000 0.0226 0.0294 0.0577 0.0662 0.0962
