@@ -1,0 +1,3985 @@
+# encoding: utf-8
+# 2023 R1
+SetScriptVersion(Version="23.1.153")
+system1 = GetSystem(Name="CFX")
+results1 = system1.GetContainer(ComponentName="Results")
+results1.Edit()
+results1.SendCommand(Command="""VIEW:Stage 1 Contour M rel Span 50 View
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.14107, 0.0767174, 0.499902
+    Scale = 8.6103
+    Pan = 0, 0
+    Rotation Quaternion = 0, 0, -0.707107, 0.707107
+    
+  END
+
+END
+
+VIEW:View 1
+  Light Angle = 50, 110
+END
+
+VIEW:View 2
+  Light Angle = 50, 110
+END
+
+VIEW:View 3
+  Light Angle = 50, 110
+END
+
+VIEW:View 4
+  Light Angle = 50, 110
+END
+
+> update
+
+VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe, /COMPHIGHLIGHT:Component 1, /COMPHIGHLIGHT:Component 2, /COMPHIGHLIGHT:Component 3
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Initialisation View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Initialisation View, viewport=1""")
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe, /COMPHIGHLIGHT:Component 1, /COMPHIGHLIGHT:Component 2, /COMPHIGHLIGHT:Component 3
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Initialisation View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Initialisation View, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Synchronize Visibility = false
+END""")
+results1.SendCommand(Command="""INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+END""")
+results1.SendCommand(Command="""DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Turbo 3D Views Macro begins (initialize)
+VIEW:Turbo Regions View
+ Coord Transform = Cartesian
+ Is A Figure = false
+ Valid Case = Case CFX
+END
+>show /WIREFRAME:Wireframe, view=/VIEW:Turbo Regions View
+# CCL from Turbo 3D Views Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Regions View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Regions View, viewport=1""")
+results1.SendCommand(Command="""DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (initialize)
+
+VIEW:Blade to Blade View
+ Coord Transform = 2D Blade-to-blade
+ Is A Figure = false
+ Valid Case = Case CFX
+END
+
+>show /INTERNAL LEGEND:Blade to Blade Legend,/INTERNAL TURBO SURFACE:Blade to Blade Surface,/INTERNAL VECTOR:Blade to Blade Vector,/INTERNAL CONTOUR:Blade to Blade Contour,/INTERNAL STREAMLINE:Blade to Blade Stream, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.5
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""VIEW:Blade to Blade View
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.481448, 0.206467, 0.49984
+    Scale = 2.80356
+    Pan = -0.0850881, -0.155768
+    Rotation Quaternion = 0, 0, -0.707107, 0.707107
+    
+  END
+
+END
+
+> update
+
+DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Turbo 3D Views Macro begins (initialize)
+VIEW:Turbo Regions View
+ Coord Transform = Cartesian
+ Is A Figure = false
+END
+# CCL from Turbo 3D Views Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Regions View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Regions View, viewport=1""")
+results1.SendCommand(Command="""# CCL from Turbo 3D Views Macro begins (execute)
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:HUB Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:HUB Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:SHROUD Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:SHROUD Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:INFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:INFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:OUTFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:OUTFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER1 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER1 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER2 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER2 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+
+>hide /DATA READER/CASE:Case CFX/COMPOSITE:HUB 2,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 2,/DATA READER/CASE:Case CFX/COMPOSITE:HUB 3,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 3,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 3,/DATA READER/CASE:Case CFX/COMPOSITE:HUB,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:PER1,/DATA READER/CASE:Case CFX/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/COMPOSITE:HUB,/DATA READER/CASE:Case TS 2/BOUNDARY:HUB Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:HUB Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:SHROUD,/DATA READER/CASE:Case TS 2/BOUNDARY:SHROUD Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:SHROUD Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE,/DATA READER/CASE:Case TS 2/COMPOSITE:INFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:INFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:INFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:OUTFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:OUTFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER1,/DATA READER/CASE:Case TS 2/BOUNDARY:PER1 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER1 Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/BOUNDARY:PER2 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER2 Passage Region, view=/VIEW:Turbo Regions View
+>show /INTERNAL CONTOUR:Blade to Blade Contour, view=/VIEW:Turbo Regions View
+# CCL from Turbo 3D Views Macro ends (execute)""")
+results1.SendCommand(Command="> autolegend plot=/INTERNAL CONTOUR:Blade to Blade Contour, view=VIEW:Turbo Regions View")
+results1.SendCommand(Command="> autolegend plot=/INTERNAL CONTOUR:Blade to Blade Contour, view=VIEW:Turbo Regions View")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Maximized Viewport = -1
+  Synchronize Camera = false
+  Synchronize Visibility = false
+  View Length Units = m
+  Viewer Camera Z = -5
+  Viewer Eye Point = Normal
+  Viewer Eye Separation = 5
+  Viewport 1 View = Stage 1 Contour M rel Span 50 View
+  Viewport 2 View = View 1
+  Viewport 3 View = View 3
+  Viewport 4 View = View 4
+  Viewport Layout = No Split
+  X Split = 0.5
+  Y Split = 0.5
+END""")
+results1.SendCommand(Command=">setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1")
+results1.SendCommand(Command="""VIEW:Blade to Blade View
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.481448, 0.206467, 0.49984
+    Scale = 2.94549
+    Pan = -0.0850881, -0.155768
+    Rotation Quaternion = 0, 0, -0.707107, 0.707107
+    
+  END
+
+END
+
+> update
+
+VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe, /COMPHIGHLIGHT:Component 1, /COMPHIGHLIGHT:Component 2, /COMPHIGHLIGHT:Component 3
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Turbo Regions View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Turbo Regions View, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Synchronize Visibility = false
+END""")
+results1.SendCommand(Command="""# CCL from Turbo 3D Views Macro begins (execute)
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:HUB Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:HUB Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:SHROUD Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:SHROUD Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:INFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:INFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:OUTFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:OUTFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER1 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER1 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER2 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER2 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+
+>hide /DATA READER/CASE:Case CFX/COMPOSITE:HUB 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 2,/DATA READER/CASE:Case CFX/COMPOSITE:HUB 3,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 3,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 3,/DATA READER/CASE:Case CFX/COMPOSITE:HUB,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:PER1,/DATA READER/CASE:Case CFX/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/COMPOSITE:HUB,/DATA READER/CASE:Case TS 2/BOUNDARY:HUB Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:HUB Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:SHROUD,/DATA READER/CASE:Case TS 2/BOUNDARY:SHROUD Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:SHROUD Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE,/DATA READER/CASE:Case TS 2/COMPOSITE:INFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:INFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:INFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:OUTFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:OUTFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER1,/DATA READER/CASE:Case TS 2/BOUNDARY:PER1 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER1 Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/BOUNDARY:PER2 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER2 Passage Region, view=/VIEW:Turbo Regions View
+>show /DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 2,/INTERNAL CONTOUR:Blade to Blade Contour, view=/VIEW:Turbo Regions View
+# CCL from Turbo 3D Views Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Turbo 3D Views Macro begins (execute)
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:HUB Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:HUB Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:SHROUD Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:SHROUD Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:INFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:INFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:OUTFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:OUTFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER1 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER1 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER2 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER2 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+
+>hide /DATA READER/CASE:Case CFX/COMPOSITE:HUB 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 2,/DATA READER/CASE:Case CFX/COMPOSITE:HUB 3,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 3,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 3,/DATA READER/CASE:Case CFX/COMPOSITE:HUB,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:PER1,/DATA READER/CASE:Case CFX/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/COMPOSITE:HUB,/DATA READER/CASE:Case TS 2/BOUNDARY:HUB Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:HUB Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:SHROUD,/DATA READER/CASE:Case TS 2/BOUNDARY:SHROUD Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:SHROUD Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE,/DATA READER/CASE:Case TS 2/COMPOSITE:INFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:INFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:INFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:OUTFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:OUTFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER1,/DATA READER/CASE:Case TS 2/BOUNDARY:PER1 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER1 Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/BOUNDARY:PER2 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER2 Passage Region, view=/VIEW:Turbo Regions View
+>show /DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 2,/INTERNAL CONTOUR:Blade to Blade Contour, view=/VIEW:Turbo Regions View
+# CCL from Turbo 3D Views Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Turbo 3D Views Macro begins (execute)
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:HUB Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:HUB Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:SHROUD Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:SHROUD Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:INFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:INFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:OUTFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:OUTFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER1 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER1 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER2 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER2 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+
+>hide /DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 2,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 2,/DATA READER/CASE:Case CFX/COMPOSITE:HUB 3,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 3,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 3,/DATA READER/CASE:Case CFX/COMPOSITE:HUB,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:PER1,/DATA READER/CASE:Case CFX/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/COMPOSITE:HUB,/DATA READER/CASE:Case TS 2/BOUNDARY:HUB Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:HUB Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:SHROUD,/DATA READER/CASE:Case TS 2/BOUNDARY:SHROUD Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:SHROUD Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE,/DATA READER/CASE:Case TS 2/COMPOSITE:INFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:INFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:INFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:OUTFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:OUTFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER1,/DATA READER/CASE:Case TS 2/BOUNDARY:PER1 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER1 Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/BOUNDARY:PER2 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER2 Passage Region, view=/VIEW:Turbo Regions View
+>show /DATA READER/CASE:Case CFX/COMPOSITE:HUB 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/INTERNAL CONTOUR:Blade to Blade Contour, view=/VIEW:Turbo Regions View
+# CCL from Turbo 3D Views Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Turbo 3D Views Macro begins (execute)
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2 3
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case CFX
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:HUB
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:HUB Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:HUB Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:SHROUD
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:SHROUD Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:SHROUD Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:BLADE
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:INFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:INFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:INFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:OUTFLOW
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:OUTFLOW Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:OUTFLOW Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER1
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER1 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER1 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+COMPOSITE:PER2
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+BOUNDARY:PER2 Passage
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+DATA READER:
+CASE:Case TS 2
+PRIMITIVE2D:PER2 Passage Region
+Colour = .6, .6, .6
+Draw Faces = On
+Draw Lines = Off
+
+END
+END
+END
+
+>hide /DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 2,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 2,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 2,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD 3,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER1 3,/DATA READER/CASE:Case CFX/COMPOSITE:PER2 3,/DATA READER/CASE:Case CFX/COMPOSITE:SHROUD,/DATA READER/CASE:Case CFX/COMPOSITE:INFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case CFX/COMPOSITE:PER1,/DATA READER/CASE:Case CFX/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/COMPOSITE:SHROUD,/DATA READER/CASE:Case TS 2/BOUNDARY:SHROUD Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:SHROUD Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:INFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:INFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:INFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:OUTFLOW,/DATA READER/CASE:Case TS 2/BOUNDARY:OUTFLOW Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:OUTFLOW Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER1,/DATA READER/CASE:Case TS 2/BOUNDARY:PER1 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER1 Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:PER2,/DATA READER/CASE:Case TS 2/BOUNDARY:PER2 Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:PER2 Passage Region, view=/VIEW:Turbo Regions View
+>show /DATA READER/CASE:Case CFX/COMPOSITE:HUB 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:HUB 3,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case CFX/COMPOSITE:HUB,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case TS 2/COMPOSITE:HUB,/DATA READER/CASE:Case TS 2/BOUNDARY:HUB Passage,/DATA READER/CASE:Case TS 2/PRIMITIVE2D:HUB Passage Region,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE,/INTERNAL CONTOUR:Blade to Blade Contour, view=/VIEW:Turbo Regions View
+# CCL from Turbo 3D Views Macro ends (execute)""")
+results1.SendCommand(Command="""VIEW:Turbo Regions View
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.04965, 0.269512, 0.0738625
+    Scale = 10.7643
+    Pan = -0.0415618, -0.00891764
+    Rotation Quaternion = 0.67244, -0.0297641, -0.00823219, 0.739508
+    
+  END
+
+END
+
+> update
+
+DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (initialize)
+
+VIEW:Blade to Blade View
+ Coord Transform = 2D Blade-to-blade
+ Is A Figure = false
+END
+
+# CCL from Blade to Blade Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.SendCommand(Command="""VIEW:Blade to Blade View
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.481448, 0.206467, 0.49984
+    Scale = 3.17197
+    Pan = -0.0850881, -0.155768
+    Rotation Quaternion = 0, 0, -0.707107, 0.707107
+    
+  END
+
+END
+
+> update
+
+VIEWPORT MANAGER:
+  Maximized Viewport = -1
+  Synchronize Camera = false
+  Synchronize Visibility = false
+  View Length Units = m
+  Viewer Camera Z = -5
+  Viewer Eye Point = Normal
+  Viewer Eye Separation = 5
+  Viewport 1 View = Blade to Blade View
+  Viewport 2 View = View 1
+  Viewport 3 View = View 3
+  Viewport 4 View = View 4
+  Viewport Layout = No Split
+  X Split = 0.5
+  Y Split = 0.5
+END""")
+results1.SendCommand(Command="> setViewportView cmd=copy, view=/VIEW:Figure 1, viewport=1")
+results1.SendCommand(Command="""INTERNAL CONTOUR:Blade to Blade Contour
+Apply Instancing Transform = On
+Domain List = /DOMAIN GROUP:All Domains
+Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform
+Line Width = 1
+  INTERNAL CONTOUR:
+  Apply Instancing Transform = On
+  Clip Contour = Off
+  Colour Map = Default Colour Map
+  Colour Scale = Linear
+  Colour Variable Boundary Values = Hybrid
+  Constant Contour Colour = Off
+  Contour Range = Global
+  Culling Mode = No Culling
+  Draw Contours = On
+  Font = Sans Serif
+  Fringe Fill = On
+  Instancing Transform = Default Transform
+  Lighting = true
+  Line Colour = 0, 0, 0
+  Line Colour Mode = Default
+  Number of Contours = 11
+  Show Numbers = Off
+  Specular Lighting = On
+  Surface Drawing = Smooth Shading
+  Text Colour = 0, 0, 0
+  Text Colour Mode = Default
+  Text Height = 0.024
+  Transparency = 0.0
+  Use Face Values = false
+  Value List = 0.0, 1.0
+  END
+  OBJECT VIEW TRANSFORM:
+    Apply Reflection = Off
+    Apply Rotation = Off
+    Apply Scale = Off
+    Apply Translation = Off
+    Principal Axis = Z
+    Reflection Plane Option = XY Plane
+    Rotation Angle = 0.0 [degree]
+    Rotation Axis From = 0 [m], 0 [m], 0 [m]
+    Rotation Axis To = 0 [m], 0 [m], 0 [m]
+    Rotation Axis Type = Principal Axis
+    Scale Vector = 1 , 1 , 1 
+    Translation Vector = 0 [m], 0 [m], 0 [m]
+    X = 0.0 [m]
+    Y = 0.0 [m]
+    Z = 0.0 [m]
+  END
+END""")
+results1.SendCommand(Command="> delete /VIEW:Figure 1,/INTERNAL CONTOUR:Blade to Blade Contour Figure 1,/LEGEND:Blade to Blade Legend Figure 1,/INTERNAL TURBO SURFACE:Blade to Blade Surface Figure 1")
+results1.SendCommand(Command="""INTERNAL POINT:Probe Point
+Apply Instancing Transform = On
+Colour = 0.5, 0.5, 0.5
+Colour Map = Default Colour Map
+Colour Mode = Constant
+Colour Scale = Linear
+Colour Variable = Pressure
+Colour Variable Boundary Values = Hybrid
+Culling Mode = No Culling
+Domain List = All Domains
+Draw Faces = On
+Draw Lines = Off
+Instancing Transform = Default Transform
+Lighting = true
+Line Colour = 0, 0, 0
+Line Width = 2
+Location = 
+Max = 
+Min = 
+Node Number = 0
+Normalized = Off
+Option = XYZ
+Point = 0 [m], 0 [m], 0 [m]
+Point Symbol = Point2D
+Range = Global
+Specular Lighting = On
+Surface Drawing = Smooth Shading
+Symbol Size = 9
+Symbol Size Mode = Absolute
+Transparency = 0.0
+Variable = 
+Variable Boundary Values = Hybrid
+Visibility = true
+END""")
+results1.SendCommand(Command="""CALCULATOR:CALCULATOR
+Expression = Pressure
+Function = probe
+Location = Probe Point
+Case Name = Case CFX
+END
+>calculate
+>show /INTERNAL POINT:Probe Point""")
+results1.SendCommand(Command="""INTERNAL POINT:Probe Point
+Colour = 0.5, 0.5, 0.5
+Colour Mode = Constant
+Colour Variable = Mach Number
+Option = XYZ
+Point = 0 [m], 0 [m], 0 [m]
+Point Symbol = Point2D
+Symbol Size = 9
+END""")
+results1.SendCommand(Command="""CALCULATOR:CALCULATOR
+Expression = Mach Number
+Function = probe
+Location = Probe Point
+Case Name = Case CFX
+END
+>calculate
+>show /INTERNAL POINT:Probe Point""")
+results1.SendCommand(Command="""INTERNAL POINT:Probe Point
+Colour = 0.5, 0.5, 0.5
+Colour Mode = Constant
+Colour Variable = Mach Number
+Option = XYZ
+Point = 0 [m], 0 [m], 0 [m]
+Point Symbol = Point2D
+Symbol Size = 9
+END""")
+results1.SendCommand(Command="""CALCULATOR:CALCULATOR
+Expression = Mach Number
+Function = probe
+Location = Probe Point
+Case Name = Case CFX
+END
+>calculate
+>show /INTERNAL POINT:Probe Point""")
+results1.SendCommand(Command=">delete /INTERNAL POINT:Probe Point")
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe, /COMPHIGHLIGHT:Component 1, /COMPHIGHLIGHT:Component 2, /COMPHIGHLIGHT:Component 3
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Synchronize Visibility = false
+END""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.05
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command=">toggle /INTERNAL CONTOUR:Blade to Blade Contour,/INTERNAL CONTOUR:Blade to Blade Contour, view=/VIEW:Turbo Regions View")
+results1.SendCommand(Command="""VIEW:Blade to Blade View
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.481448, 0.206467, 0.49984
+    Scale = 2.4175
+    Pan = -0.0850881, -0.155768
+    Rotation Quaternion = 0, 0, -0.707107, 0.707107
+    
+  END
+
+END
+
+> update
+> setViewportView cmd=copy, view=/VIEW:MN5, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Maximized Viewport = -1
+  Synchronize Camera = false
+  Synchronize Visibility = false
+  View Length Units = m
+  Viewer Camera Z = -5
+  Viewer Eye Point = Normal
+  Viewer Eye Separation = 5
+  Viewport 1 View = Blade to Blade View
+  Viewport 2 View = View 1
+  Viewport 3 View = View 3
+  Viewport 4 View = View 4
+  Viewport Layout = No Split
+  X Split = 0.5
+  Y Split = 0.5
+END""")
+results1.SendCommand(Command=">setViewportView cmd=set, view=/VIEW:MN5, viewport=1")
+results1.SendCommand(Command="""VIEW:MN5
+  OBJECT REPORT OPTIONS:
+Report Caption = Mach numbers at 5%
+  END
+END""")
+results1.SendCommand(Command="""VIEW:MN5
+  OBJECT REPORT OPTIONS:
+Report Caption = Mach numbers at 5%
+  END
+END""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/Mach numbers at 5%.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe, /COMPHIGHLIGHT:Component 1, /COMPHIGHLIGHT:Component 2, /COMPHIGHLIGHT:Component 3
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Synchronize Visibility = false
+END""")
+results1.SendCommand(Command="""DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (initialize)
+
+VIEW:Blade to Blade View
+ Coord Transform = 2D Blade-to-blade
+ Is A Figure = false
+END
+
+# CCL from Blade to Blade Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.5
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="> setViewportView cmd=copy, view=/VIEW:MN50, viewport=1")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Maximized Viewport = -1
+  Synchronize Camera = false
+  Synchronize Visibility = false
+  View Length Units = m
+  Viewer Camera Z = -5
+  Viewer Eye Point = Normal
+  Viewer Eye Separation = 5
+  Viewport 1 View = MN5
+  Viewport 2 View = View 1
+  Viewport 3 View = View 3
+  Viewport 4 View = View 4
+  Viewport Layout = No Split
+  X Split = 0.5
+  Y Split = 0.5
+END""")
+results1.SendCommand(Command=">setViewportView cmd=set, view=/VIEW:MN50, viewport=1")
+results1.SendCommand(Command=">setViewportView cmd=set, view=/VIEW:MN5, viewport=1")
+results1.SendCommand(Command=">setViewportView cmd=set, view=/VIEW:MN50, viewport=1")
+results1.SendCommand(Command="""VIEW:MN50
+  OBJECT REPORT OPTIONS:
+Report Caption = Mach numbers at 50%
+  END
+END""")
+results1.SendCommand(Command=">setViewportView cmd=set, view=/VIEW:MN50, viewport=1")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/MN50GEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe, /COMPHIGHLIGHT:Component 1, /COMPHIGHLIGHT:Component 2, /COMPHIGHLIGHT:Component 3
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Synchronize Visibility = false
+END""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.95
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="> setViewportView cmd=copy, view=/VIEW:MN95, viewport=1")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Maximized Viewport = -1
+  Synchronize Camera = false
+  Synchronize Visibility = false
+  View Length Units = m
+  Viewer Camera Z = -5
+  Viewer Eye Point = Normal
+  Viewer Eye Separation = 5
+  Viewport 1 View = MN50
+  Viewport 2 View = View 1
+  Viewport 3 View = View 3
+  Viewport 4 View = View 4
+  Viewport Layout = No Split
+  X Split = 0.5
+  Y Split = 0.5
+END""")
+results1.SendCommand(Command=">setViewportView cmd=set, view=/VIEW:MN95, viewport=1")
+results1.SendCommand(Command="""VIEW:MN95
+  OBJECT REPORT OPTIONS:
+Report Caption = Mach numbers at 95%
+  END
+END""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/MN95GEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""VIEW:Turbo Initialisation View
+ Object Visibility List = /WIREFRAME:Wireframe, /COMPHIGHLIGHT:Component 1, /COMPHIGHLIGHT:Component 2, /COMPHIGHLIGHT:Component 3
+ Is A Figure = false
+END""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.SendCommand(Command="""VIEWPORT MANAGER:
+  Synchronize Visibility = false
+END""")
+results1.SendCommand(Command="""DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (initialize)
+VIEW:Meridional View
+ Coord Transform = 2D Meridional
+ Is A Figure = false
+ Hide Difference Case = true
+ Valid Case = Case CFX
+END
+>show /INTERNAL LEGEND:Meridional Legend,/INTERNAL TURBO SURFACE:Meridional Surface, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Meridional View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Meridional View, viewport=1""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""VIEW:Meridional View
+  Camera Mode = User Specified
+  CAMERA:
+    Option = Pivot Point and Quaternion
+    Pivot Point = 0.04965, 0, 0.27215
+    Scale = 14.1329
+    Pan = 0, 0
+    Rotation Quaternion = -0.707107, 0, 0, 0.707107
+    
+  END
+
+END
+
+> update
+
+# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 14
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Mass
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number MCA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Mass
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number MCA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Length
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number LCA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend,/INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 53
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 100
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (initialize)
+
+VIEW:Blade to Blade View
+ Coord Transform = 2D Blade-to-blade
+ Is A Figure = false
+END
+
+# CCL from Blade to Blade Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.5
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (initialize)
+VIEW:Meridional View
+ Coord Transform = 2D Meridional
+ Is A Figure = false
+ Hide Difference Case = true
+END
+# CCL from Meridional Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Meridional View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Meridional View, viewport=1""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Mach Number
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+ Colour Variable = Mach Number ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Mach Number
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/MNMERIDGEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Total Enthalpy
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Total Enthalpy
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0 [J kg^-1]
+Min = 0.0 [J kg^-1]
+Number of Contours = 11
+Value List = 0 [J kg^-1],1 [J kg^-1]
+
+ Colour Variable = Total Enthalpy ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Total Enthalpy
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/ENTMERIDGEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (initialize)
+
+VIEW:Blade to Blade View
+ Coord Transform = 2D Blade-to-blade
+ Is A Figure = false
+END
+
+# CCL from Blade to Blade Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Blade to Blade View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Blade to Blade View, viewport=1""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.05
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Mach Number
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0
+Min = 0.0
+Number of Contours = 11
+Value List = 0,1
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.05
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Total Enthalpy
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0 [J kg^-1]
+Min = 0.0 [J kg^-1]
+Number of Contours = 11
+Value List = 0 [J kg^-1],1 [J kg^-1]
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/ENT5GEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.5
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Total Enthalpy
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0 [J kg^-1]
+Min = 0.0 [J kg^-1]
+Number of Contours = 11
+Value List = 0 [J kg^-1],1 [J kg^-1]
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/ENT50GEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.95
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Total Enthalpy
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0 [J kg^-1]
+Min = 0.0 [J kg^-1]
+Number of Contours = 11
+Value List = 0 [J kg^-1],1 [J kg^-1]
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/ENT95GEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.95
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Total Enthalpy in Stn Frame.Gradient X
+Colour Variable Boundary Values = Conservative
+Contour Range = Global
+Max = 0.0 [m s^-2]
+Min = 0.0 [m s^-2]
+Number of Contours = 11
+Value List = 0 [m s^-2],1 [m s^-2]
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.95
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Static Entropy
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0 [J kg^-1 K^-1]
+Min = 0.0 [J kg^-1 K^-1]
+Number of Contours = 11
+Value List = 0 [J kg^-1 K^-1],1 [J kg^-1 K^-1]
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.05
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Static Entropy
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0 [J kg^-1 K^-1]
+Min = 0.0 [J kg^-1 K^-1]
+Number of Contours = 11
+Value List = 0 [J kg^-1 K^-1],1 [J kg^-1 K^-1]
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/ENT5GEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.5
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Static Entropy
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0 [J kg^-1 K^-1]
+Min = 0.0 [J kg^-1 K^-1]
+Number of Contours = 11
+Value List = 0 [J kg^-1 K^-1],1 [J kg^-1 K^-1]
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/ENT50GEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""# CCL from Blade to Blade Macro begins (execute)
+INTERNAL TURBO SURFACE:Blade to Blade Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Span
+ Surface Type = Slice
+ Span = 0.95
+ Turbo View Plot Type = Contour
+ Colour Mode = Constant
+ Circumferential Average Mode = None
+ Draw Faces = Off
+ Draw Lines = Off
+END
+INTERNAL CONTOUR:Blade to Blade Contour
+Location List = Blade to Blade Surface
+Colour Variable = Static Entropy
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0 [J kg^-1 K^-1]
+Min = 0.0 [J kg^-1 K^-1]
+Number of Contours = 11
+Value List = 0 [J kg^-1 K^-1],1 [J kg^-1 K^-1]
+
+END
+LEGEND:Blade to Blade Legend
+ Legend Title Mode = Variable
+ Legend X Justification = Left
+ Legend Plot = Blade to Blade Contour
+END
+>hide /INTERNAL TURBO SURFACE:Blade to Blade Surface, view=/VIEW:Blade to Blade View
+>show /INTERNAL CONTOUR:Blade to Blade Contour,/LEGEND:Blade to Blade Legend, view=/VIEW:Blade to Blade View
+# CCL from Blade to Blade Macro ends (execute)""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/ENT95GEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""DEFAULT INSTANCE TRANSFORM:Default Transform
+ Instancing Info From Domain = On
+END""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (initialize)
+VIEW:Meridional View
+ Coord Transform = 2D Meridional
+ Is A Figure = false
+ Hide Difference Case = true
+END
+# CCL from Meridional Macro ends (initialize)""")
+results1.SendCommand(Command="""# Setting Single View: /VIEW:Meridional View
+VIEWPORT MANAGER:
+  Viewport Layout = No Split
+  Maximized Viewport = -1
+END
+>setViewportView cmd=set, view=/VIEW:Meridional View, viewport=1""")
+results1.SendCommand(Command="""# CCL from Meridional Macro begins (execute)
+INTERNAL TURBO SURFACE:Meridional Surface
+ Turbo Domain List = /DOMAIN GROUP:All Domains
+ Option = Constant Theta
+ Surface Type = Sample
+ Span Points = 15
+ Streamwise Points = 50
+ Turbo View Plot Type = Contour
+ Colour Mode = Variable
+Circumferential Average Mode = Area
+Maximum Number of Sampling Points = 20
+
+ Colour Variable = Static Entropy
+ Draw Faces = Off
+ Render Edge Angle = 0
+ Draw Lines = On
+END
+INTERNAL CONTOUR:Meridional Contour
+Location List = Meridional Surface
+Colour Variable = Static Entropy
+Colour Variable Boundary Values = Hybrid
+Contour Range = Global
+Max = 0.0 [J kg^-1 K^-1]
+Min = 0.0 [J kg^-1 K^-1]
+Number of Contours = 11
+Value List = 0 [J kg^-1 K^-1],1 [J kg^-1 K^-1]
+
+ Colour Variable = Static Entropy ACA on Meridional Surface
+END
+LEGEND:Meridional Legend
+ Legend Title Mode = User Specified
+ Legend Title = Static Entropy
+ Legend X Justification = Left
+ Legend Plot = Meridional Contour
+END
+INTERNAL SURFACE GROUP:Meridional Blade Wireframe
+Location List = /DATA READER/CASE:Case CFX/COMPOSITE:BLADE,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 2,/DATA READER/CASE:Case CFX/COMPOSITE:BLADE 3,/DATA READER/CASE:Case TS 2/COMPOSITE:BLADE
+Draw Faces = Off
+Render Edge Angle = 0
+Draw Lines = On
+Line Colour = 0.6, 0.6, 0.6
+Line Colour Mode = User Specified
+Line Width = 2
+END
+>hide /INTERNAL SURFACE GROUP:Meridional Blade Wireframe, view=/VIEW:Meridional View
+>show /INTERNAL TURBO SURFACE:Meridional Surface,/INTERNAL CONTOUR:Meridional Contour,/LEGEND:Meridional Legend, view=/VIEW:Meridional View
+# CCL from Meridional Macro ends (execute)""")
+results1.SendCommand(Command="""HARDCOPY:
+Antialiasing = On
+Hardcopy Filename = Z:/MMS175/DT3/img/ENTMERIDGEN1.jpg
+Hardcopy Format = jpg
+Hardcopy Tolerance = 0.0001
+Image Height = 600
+Image Scale = 100
+Image Width = 600
+JPEG Image Quality = 80
+Use Screen Size = On
+White Background = Off
+END
+>print""")
+results1.SendCommand(Command="""EXPORT:
+ANSYS Export Data = Element Heat Flux
+ANSYS File Format = ANSYS
+ANSYS Reference Temperature = 0.0 [K]
+ANSYS Specify Reference Temperature = Off
+ANSYS Supplemental HTC = 0.0 [W m^-2 K^-1]
+Additional Variable List =  
+BC Profile Type = Inlet Velocity
+CSV Type = CSV
+Case Name = Case CFX
+Export Connectivity = Off
+Export Coord Frame = Global
+Export File = Z:/MMS175/DT3/cfd/cfdrun_files/user_files/GEN1.csv
+Export Geometry = On
+Export Location Aliases = 
+Export Node Numbers = Off
+Export Null Data = On
+Export Type = Generic
+Export Units System = Current
+Export Variable Type = Current
+External Export Data = None
+Include File Information = Off
+Include Header = On
+Location = IGV Blade
+Location List = IGV Blade
+Null Token = null
+Overwrite = On
+Precision = 8
+Separator = \", \"
+Spatial Variables = X,Y,Z
+Variable List =  
+Vector Brackets = ()
+Vector Display = Scalar
+END
+>export""")
+Save(Overwrite=True)
+Save(Overwrite=True)
+Open(FilePath="Z:/MMS175/DT3/cfd/cfdrun.wbpj")

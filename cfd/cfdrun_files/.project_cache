@@ -64,6 +64,8 @@ dp0/CFX/CFX/CFX.cfx.XMhTuO4RA5kFiTmdvwy1jQ.tmp
 dp0/CFX/CFX/CFX.cfx.xUuGU+4RFpnC3JKXVg9ZNQ.tmp
 dp0/CFX/CFX/CFX.cfx.zq=ez+4RzphpqoG8YUaR8g.tmp
 dp0/CFX/CFX/CFX.def
+dp0/CFX/CFX/CFX_007.out
+dp0/CFX/CFX/CFX_007.res
 dp0/CFX/CFX/CFX_008.out
 dp0/CFX/CFX/CFX_008.res
 dp0/CFX/Post/CFX.cst
@@ -88,6 +90,9 @@ session_files/journal14.wbjn
 session_files/journal15.wbjn
 session_files/journal16_crashed.wbjn
 session_files/journal17.wbjn
+session_files/journal17_crashed.wbjn
+session_files/journal18.wbjn
+session_files/journal19.wbjn
 session_files/journal2.wbjn
 session_files/journal3.wbjn
 session_files/journal4.wbjn
